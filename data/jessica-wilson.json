@@ -2,11 +2,11 @@
  "id": "jessica-wilson",
  "title": "Jessica Wilson",
  "subtitle": "Solo booth, Frieze London 2026",
- "context": "diez gallery (Amsterdam) presents a solo booth by Jessica Wilson at Frieze London, 14 to 18 October 2026. Booth number and section: [booth number and section].",
+ "context": "diez gallery (Amsterdam) presents a solo booth by Jessica Wilson at Frieze London, 14 to 18 October 2026, Focus section, stand F17.",
  "artist": {
   "name": "Jessica Wilson",
   "born": "1991, New York City",
-  "based": "Amsterdam (works between Amsterdam and New York)",
+  "based": "Lives and works between Amsterdam and New York",
   "education": "Wesleyan University (2009 to 2013); MFA, Milton Avery Graduate School of the Arts, Bard College (2017 to 2020); Rijksakademie van beeldende kunsten, Amsterdam (2023 to 2025)",
   "mediums": "CGI animation, motion capture, readymade sculpture and LED-based light works",
   "oneLiner": "Jessica Wilson makes computer-generated animations and installations about how invisible systems, from signals and sensors to emotions, take form in the body and in space.",
@@ -28,8 +28,8 @@
  ],
  "booth": {
   "title": "Sweet Nothing",
-  "floor": "Sweet Nothing (2025 to 2026): up to 12 repurposed LED taxi tops, custom mapping software, CG animation, infinite loop, dimensions variable. At Frieze shown with six to twelve tops [final count to confirm]. Unique. 25,000 EUR.",
-  "walls": "Wall series [title to confirm] (2026): archival pigment prints, 21 x 17 cm, each unique, 2,000 EUR each. Rendered smoke works framed as camera-less photographs. No editions in the Frieze presentation.",
+  "floor": "Sweet Nothing (2025 to 2026): one unique work of 12 repurposed LED taxi tops, custom mapping software, CG animation, infinite loop, dimensions variable. Six tops are shown at Frieze; the buyer acquires all twelve. Can be co-acquired by two institutions (six tops each, one work). 25,000 EUR total.",
+  "walls": "Two or three framed wall works, untitled for now (2026): unique archival pigment prints, 21 x 17 cm, 2,000 EUR each. Rendered smoke works framed as camera-less photographs.",
   "animation": "The loop runs about 1 minute 20 seconds: steam rising, thickening into computer-generated smoke, resolving into drifting numbers."
  },
  "works": [
@@ -38,7 +38,7 @@
    "year": "2025 to 2026",
    "type": "Installation",
    "description": "Up to 12 repurposed LED taxi tops, custom mapping software, CG animation, infinite loop. The tops are decommissioned New York units that were engineered to track their own location and target advertising block by block. Synchronised over a local network.",
-   "price": "25,000 EUR, unique. [Pricing for a reduced version with fewer tops to confirm.]"
+   "price": "25,000 EUR for the complete work of twelve tops, unique; co-acquisition by two institutions possible."
   },
   {
    "title": "The Commute",
@@ -52,7 +52,7 @@
    "year": "2024 to 2025",
    "type": "Light sculpture",
    "description": "NYC taxi tops stripped of their ads, rewired with Arduino and WS2812B LEDs running real-time lighting sequences of infinite duration; 1R52 and 7G94 are also treated with olive oil and matte autocoat. Custom metal frame. 139 x 46 x 41 cm. Shown above head height, between signage and sculpture: part lamp, part marquee, part relic.",
-   "price": "6,000 EUR each"
+   "price": "6,000 EUR each; two or three available from storage."
   },
   {
    "title": "Fountain (Weeping Outlet)",
@@ -105,7 +105,7 @@
   }
  ],
  "exhibitions": [
-  "Upcoming: SculptureCenter, New York (2027); solo at diez, Amsterdam (2027); duo at Punt WG, Amsterdam (2026); diez chez ellen at Ellen de Bruijne Projects, Amsterdam (2026)",
+  "Upcoming: SculptureCenter, New York (exhibition opening November 2027); solo at diez, Amsterdam (2027); duo at Punt WG, Amsterdam (2026); diez chez ellen at Ellen de Bruijne Projects, Amsterdam (2026)",
   "2026: The Attic, solo at Petrine, Paris (March to May), essay by Vijay Masharani, 'Find Up then Find the Ladder'",
   "2025: Frieze x ICA Artists' Film Programme, ICA London; Eye on Art: Six Minutes, Eye Filmmuseum Amsterdam; Multiplex 4, KM28 Berlin; Projections at Art Rotterdam; Diaphane at Soldes, Los Angeles",
   "2024: Dream State, duo at diez, Amsterdam; General Magic, The Fulcrum Press, Los Angeles; To supplement the fragment, Public Gallery, London; Face Arena, Central Fine, Miami",
@@ -154,17 +154,16 @@
   "Do not name theorists in conversation (no Massumi, Winnicott, Toufic, Brinkema).",
   "Do not name the author of the fog quotation in the booth text unless a curator asks directly (see gallery notes).",
   "Do not mention museum acquisitions, pitches or collection conversations (Stedelijk, V&A, Whitworth, Abbot Hall) as done or in progress.",
-  "Do not disclose details, funding or timing of the SculptureCenter project beyond 'an exhibition at SculptureCenter in 2027'.",
+  "Do not describe the concept of the SculptureCenter project; say it is an exhibition opening November 2027 that continues her work with taxi tops.",
   "Do not name private collectors or say which editions were bought by whom.",
   "Do not invent prices, editions, dimensions or technical specs.",
   "Do not share the artist's personal data or video passwords."
  ],
  "gaps": [
-  "Final number of taxi tops at the booth, and price if fewer than twelve",
-  "Title and exact medium of the wall series",
-  "Technical sheet for Sweet Nothing: power, network, media files, maintenance protocol, what the certificate includes",
-  "Booth number and section",
-  "Prices for The Commute and Siren, and whether they are available at the fair"
+  "Discount policy",
+  "Technical sheet for Sweet Nothing: dimensions and weight per top, power, network, certificate, maintenance",
+  "Invoicing and export for UK buyers",
+  "Prices for The Commute and Siren, and whether they can be offered"
  ],
  "personas": [
   {
@@ -258,12 +257,12 @@
    "q": "How is it priced and what is unique?",
    "intent": "Commercial clarity.",
    "keyPoints": [
-    "Sweet Nothing: unique, 25,000 EUR",
-    "Wall works: unique prints, 21 x 17 cm, 2,000 EUR each",
-    "Single taxi light works 6,000 EUR",
-    "[reduced version pricing]"
+    "Sweet Nothing: one unique work of twelve tops, 25,000 EUR; six on the booth",
+    "Two institutions can co-acquire it, six tops each",
+    "Wall works: unique framed prints, 21 x 17 cm, 2,000 EUR each",
+    "Wall-mounted taxi light works 6,000 EUR, two or three available"
    ],
-   "answer": "Everything on the booth is unique. Sweet Nothing, the full floor installation of up to twelve tops, is 25,000 euros. The wall works are unique archival pigment prints, 21 by 17 centimetres, 2,000 euros each. If your client wants a single object, the individual taxi-top light works are 6,000 euros each. I'll send the full list with technical sheets today.",
+   "answer": "Everything here is unique. Sweet Nothing is one work of twelve taxi tops; we show six, and the buyer acquires all twelve for 25,000 euros. It can even be shared by two institutions, six tops each, as one work. The framed prints on the wall are unique, 2,000 euros each. And if your client wants a single object, we have two or three wall-mounted taxi-top light works at 6,000 euros. I'll send the full list with technical sheets today.",
    "avoid": "Don't improvise a discount at the first question."
   },
   {

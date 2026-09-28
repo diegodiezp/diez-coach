@@ -1,6 +1,45 @@
 # Gallery notes: Jessica Wilson, Frieze London 2026
-Prepared outside the app. Updated 28 September 2026. These notes are ground truth for the coach.
+Prepared outside the app. Updated 29 September 2026. Ground truth for the coach; where these notes and the dossier disagree, these notes win.
 Lines starting with INTERNAL are for the team only: use them to understand, never volunteer them to visitors.
+Sources: artist statement (May 2026), Frieze voice notes, SculptureCenter studio call (summer 2026), installation planning session, dinner conversation, press pitch text, Frieze booth PDF, Masharani essay, wall-text drafts, 2024 fair application, reviews (Artforum, ScreenSlate, NYT), frieze review of Lutz Bacher.
+
+## Practical answers staff need
+- Booth: Frieze London 2026, Focus section, stand F17. Solo booth. Jessica lives and works between Amsterdam and New York.
+- Jessica will NOT be at Frieze in October (she has a conflict). If asked: she is not at the fair; offer a call, a studio visit in New York or Amsterdam, or an interview arranged through the gallery.
+- The booth shows half of the Sweet Nothing installation first shown at her Rijksakademie Open Studios 2025. The original has twelve tops; the Frieze booth is half the size of her Rijksakademie studio, so she cut it in half: six tops on the booth (confirmed), plus two or three framed wall works. Halving condenses the image and gives a more concentrated view of the smoke becoming numbers.
+- The loop runs about 1 minute 20 seconds: steam blowing up from a manhole, thickening into CG smoke, becoming numbers. Steam also reads as the city "blowing off steam"; it is animated like smoke in early cartoons.
+- One central computer runs and maps the whole installation, the way a fleet server coordinates tops on the street. She is preparing an installation manual so it can be installed without her.
+- How Sweet Nothing is sold (confirmed): it is one unique work of twelve tops, 25,000 EUR in total. The booth shows six, but the buyer acquires all twelve. Two institutions can co-acquire it, each holding six tops, while it remains a single work. There is no edition.
+- Also available (confirmed): two or three wall-mounted taxi-top light works in storage, closer to lamps or marquees (the gallery compares them to Philippe Parreno's marquees), 6,000 EUR each; the video works in editions (see dossier prices). Other works can be discussed for the future: never promise specific pieces, dates or prices beyond these.
+- Wall works (confirmed): two or three on the booth, untitled for now, unique, framed archival pigment prints, 21 x 17 cm, 2,000 EUR each, deliberately small and dispersed so they do not compete with the floor. They pull visitors into the booth rather than letting them photograph it from the aisle. From the planning session: the selection favours the images that feel most violent or most romantic; they hang near the booth entrance rather than on the back wall, where they would distract from the floor; and she weighed how visible the digital construction should be, since without context a viewer may see the smoke as constructed without knowing it is simulated.
+
+## The taxi tops: facts from the artist
+- She has worked with NYC taxi tops for about two and a half years, with three types: analog tops (she redoes the existing lighting as an array; these are the light works); a big, bulky black LED type rarely seen on New York streets (a batch had sat in a warehouse in Chicago); and the sleek LED type seen everywhere in New York.
+- The LED tops were going to be thrown away; she was drawn to them as objects before she knew what she would do with them. She has more units in storage in New York.
+- Opened up, they contain far more than screens: Wi-Fi, GPS, weather sensors. They belong to a smart-infrastructure protocol that maps and targets demographics: a fleet server plays different ads depending on neighbourhood and time of day (her example: liquor ads at night; different ads in the Bronx than in Long Island City). She calls it a futile attempt to target and organise that comes off as obvious.
+- Economics, per the artist: the tops are moving billboards owned and deployed by companies; a driver can lease one and gets a cut for letting the car roof work as a billboard. She says the company that retired these units was later bought by Lyft [unverified: say "she was told" if used].
+- Class and the city: taxis are a semi-luxury commodity in New York; the tops speak only to the public. For her they capture New York, where nothing is truly public or truly private.
+- Europeans often don't recognise them at first, then notice them in a New York film that night. New Yorkers have learned not to see them because the city is saturated with brightness: visual noise.
+- Where the tops have been shown: the LED installation once (Rijksakademie Open Studios 2025); analog light works once with diez; The Commute (an opened-up top with an animation of counting hands) at Open Studios. She has shown them opened with a plexi sheet so you can see inside ("like an airplane").
+- INTERNAL: she finds some of the lamp works "a little lampy" and wants to push them beyond lamps. Never say this to visitors.
+
+## Her thinking, in her own terms (paraphrase freely)
+- She gravitates toward systems or objects with a vague, intangible or illegible quality: what she calls the virtual or the phantasmal.
+- Some artists and engineers "open the hood" to see how things work; against that, a history (especially in the US) of closed systems makes the devices around us inaccessible and infantilising, obscure in origin, masking something more concrete, perhaps sinister. "What's behind the infrastructure" runs from the outlet works to the taxi tops.
+- She is drawn to smoke, fog, clouds and steam as interstitial, indeterminate entities.
+- The title, in her words: "Sweet Nothing" points to the intimate nothings, the small murmured things that have such an effect on the object of your desire.
+- The booth brings together public announcements (any way of telling people how to behave in public) and futile attempts to organise chaos through smart infrastructure, data collection and analysis.
+- Smoke in animation: from early hand-drawn cartoons and Disney onward, smoke makes the air visible. You must draw the movement of smoke or clouds for atmosphere to exist at all. Smoke gives shape to something that is not there (a thought bubble, a puff when someone disappears) and marks that something has changed.
+- Explosion, cloud and steam: frozen in a single image they are exactly the same, and made with the same process. Context decides whether we read violence or romance. In Hollywood the context is clear; on the booth walls it is withdrawn.
+- CGI is mostly used for disasters (explosions, falling buildings, the tsunami that destroys New York). Knowing it was made in software can be comforting: there is something comforting in watching your worst nightmare on screen. The same imagery turns sinister when it is really happening. Conversely, quiet CG scenes of attentive care can provoke a paranoid feeling: is this real? how was it made?
+- Before the Rijksakademie her aim was a new way of looking at CGI without Hollywood and video-game signifiers. At the Rijksakademie she decided to make what she had consciously avoided: the actual disaster (smoke, explosion), wrangling smoke volumes until they teeter on the edge of legibility. Is it a cloud? an explosion? romantic? a threat? How do we measure violence, grief or threat?
+- A tension she keeps: the desire to index the technical processes behind an image versus the impossibility of full transparency, and the enchantment when realities don't align.
+- The fog of the twenty-first century: a blurry, all-encompassing atmosphere where nothing can be seen, mapped or communicated; the "fog of computing" as cities adopt smart infrastructure. Everything is accessible, yet you cannot see what is in front of you.
+- After the Rijksakademie she spent time thinking about sculpture; she now wants to bring narrative back into sculptural installation.
+- Two ways of working: in New York isolated, on the computer, with close attention to detail; in Amsterdam more conceptual and more social. She says it can feel like being two separate artists.
+- She prefers booths that show one work, or one body of work, over "a little bit of everything".
+- INTERNAL: her fog references are Esther Leslie (essay on fog, froth and foam; a media theorist in the Benjaminian tradition who connects fog to tear gas, coffee froth, flammable building foam and the data "cloud" that triangulates us), Ruskin's storm cloud of the nineteenth century, and Brian Dillon on melancholy and cloud (pathetic fallacy: an affinity between real fog and felt futility). The fog quotation in the booth text is Leslie's. Never volunteer these names; only if a curator asks directly where the quote comes from, it is Esther Leslie. This supersedes the earlier rule "do not attribute the fog quote until verified".
+- INTERNAL: Brian Massumi's essay on the affective fact of threat informed her 2019 show Faulty Bulb and the siren work: the body goes into threat mode on hearing a siren before it understands what it is. Do not name Massumi publicly; the idea (the body reacts before the mind understands) can be said plainly.
 
 ## Artist statement (her own words, May 2026; paraphrase freely)
 - She makes computer-generated animations and installations with sensitivity to the somatic and material effects of phantasmal or virtual systems.
@@ -14,18 +53,44 @@ Lines starting with INTERNAL are for the team only: use them to understand, neve
 - Operational LED tops run a targeting logic that parses the city into addressable segments: who is on this block, at this hour, where attention might land. They were retired when the fleet updated to newer models, and were built for sun, rain and the visual noise of the street.
 - The system that synchronises several tops over a local network was developed for Sweet Nothing.
 - She prioritises fair pay for her collaborators (concept artist, writing partner, sound designer, foley artist, technical labour).
-- INTERNAL: she is developing a new taxi-top installation for SculptureCenter. Unannounced: say only "an exhibition at SculptureCenter in 2027".
-
-## Voice memo for Frieze (partial: from the reviewed extract, September 2026)
-- Her work gravitates toward systems or objects with vagueness, an intangible or phantasmal quality.
-- Smoke, fog, clouds and steam are, in her words, interstitial, indeterminate entities she is drawn to.
-- She contrasts artists and engineers who "open the hood" with a US history of closed systems that become inaccessible and infantilising; such devices mask something more concrete, perhaps more sinister.
-- The title, in her words: "Sweet Nothing" refers to intimate nothings, the small murmured things that have a strong effect on the object of one's desire. This is the artist's own explanation and replaces any gallery reading of the title.
-- Technical detail, from the artist: the taxi tops carry Wi-Fi, GPS and weather sensors, not just screens, and were designed to coordinate with other units in the fleet to show different ads by location.
-- At the Rijksakademie her practice shifted toward rendering smoke and disaster directly.
-- INTERNAL: Jessica attributes the fog quotation in the booth text to Esther Leslie, and mentions Ruskin and Brian Dillon as references. Never volunteer these names. Only if a curator asks directly where the quote comes from: it is Esther Leslie. This supersedes the earlier rule "do not attribute the fog quote until verified".
+- SculptureCenter, New York: her exhibition opens November 2027 (public). It continues the work with decommissioned LED taxi tops.
+- INTERNAL: the concept of the new SculptureCenter installation (opened units playing their original expired ads, interrupted by animated vignettes of their own components as characters) is still in development: do not describe it to visitors.
 
 ## Booth facts confirmed from the Frieze PDF
 - The booth text includes the Yo-Yo Ma story as Jessica's own childhood memory, accompanying The Commute (2025, repurposed LED taxi top, custom software, CG animation, 8:37, 65 x 136 x 70 cm). It closes on the idea that when the subject dissolves it can't catch up, and counting gets mistaken for a countdown.
 - The taxi-top light works are shown above head height, "part lamp, part marquee, part relic": a move from image-making toward subtraction, void and atmosphere; a dream state, detached, hypnotic, liminal.
 - Also listed for 2026 in the PDF: Sound Biesenthal, Wehrmuehle Museum, Biesenthal.
+
+## Other works and texts
+- Siren (2026): found siren horns (conical speakers) arranged in radial symmetry around a post, condensed to ear height. It plays a recording, close to half an hour long, by her husband Scott on a nylon-string guitar, bending strings to imitate a siren's glissando without quite achieving it. Such horns are used for civil and missile alerts, and also to pipe music into parking lots; she finds them cheaply and may make more. Origin: the sirens that pass constantly on her street in Brooklyn, casting the apartment in red light; in New York, for her, there is no real interior, the outside is always part of your life. Designed to come apart in pieces.
+- INTERNAL: keep the siren's local detail generic ("the constant sirens on her street in Brooklyn"); the rest is personal.
+- The Attic (Petrine, Paris, March to May 2026) included Fountain (Weeping Outlet), Siren and Pathetic Fallacy, a sequence of smoke shapes. Vijay Masharani's essay "Find Up then Find the Ladder" reads the outlet's face as an infant's, a vulnerable conduit for a signal ("don't shoot the messenger", from Jessica's notes); reads the smoke permutations as glyphs (spiral, cobra, tumour, profile, nuke), evoking De Chirico's smokestacks; and notes that depicting something insubstantial demands an engagement with density that solid objects skip. His closing idea for the show: some little somethings rather than one big nothing.
+- INTERNAL: Masharani's essay also carries strong political readings of current events. Staff cite only what it says about the works.
+- Wet Carpet, Fountain (Weeping Outlet) and Pretend I'm Dead (2024) were conceived as one installation of three durational works: puddles on a Hollywood-red carpet, a socket that weeps, two monitors of hands building towers of wooden blocks with the blocks removed, leaving only the sound of building and collapsing. In her words, it set out as a proposition and ended up a provocation: little disasters of varying seriousness, each with a gesture of concealment (the unseen source of the spill, of the leak, the missing blocks). Her question: how do we come to know the line between psychic reality and what we perceive as objective reality, between sensation and perception, affect and emotion, virtual and actual?
+- Pretend I'm Dead continues a thread: after animating a hand that erases (Perfectly Clear), she wanted a hand that builds and destroys. For her, computer animation is like play: simulating physical conditions to understand what can and cannot be controlled. "Making art is playing; the stakes are high."
+- INTERNAL: a personal memory behind Pretend I'm Dead was shared with Diego privately. It is deliberately not in these notes and must never be told.
+- Not Normally at Rest (2020), reviews: Wendy Vogel in Artforum read the four videos (a duplex outlet as analyst and analysand) as tapping into shared lockdown anxiety, with detours through slasher and Busby Berkeley musical, underlining how tenuous mediated connection is. Maxwell Paparella in ScreenSlate stressed the evocation of disuse (an abandoned room, infrastructure spilling out from behind the wall) and noted the videos ran on two monitors in the New Museum's Screen Series.
+- Perfectly Clear in The Painter's New Tools (Nahmad Contemporary, 2022): Travis Diehl in The New York Times described a nearly photorealistic hand drawing a squeegee down a soapy window, and read its tactile detail as proof that the medium matters less than the urge to exceed the chore of living.
+- Earlier framing (2024, still accurate): her subjects are shrouded by smudged or dirty surfaces (a dirty window, a foggy mirror, emergency-light glare); she retreats from sensational Hollywood and video-game CGI; she moved from 3D animation toward physical objects with Fountain (2024), then toward sourced objects that display her 3D environments.
+- INTERNAL: the taxi-top smoke installation was first developed in 2024 under the working title Smoke Screen (a simulated volumetric cloud crossing the tops, "frozen in place like a traffic jam trying to escape destruction"). If useful say "in development since 2024"; never mention fair applications.
+
+
+## The booth logic (gallery thinking)
+- Lutz Bacher reference: at Ratio 3 (reviewed by Jonathan Griffin in frieze, 2013) Bacher paired Stress Balls (2012), hundreds of black foam balls on the floor, with 18 framed prints from The Celestial Handbook (2011), old black-and-white astronomy illustrations. The balls are semantically blank; the images do the cosmic lifting, and the gap between banal object and grand image is the content.
+- Sweet Nothing reverses this: the taxi tops are not blank, they already carry New York signage, advertising and how a city announces itself. So the wall smoke works must not act as illustrative captions. They stay small, dispersed and abstracted (smoke as process and form, not a specific event): a different register, not a footnote.
+- The footnote risk, named by Jessica herself: images placed as captions would feel like a footnote in the deflating sense (subordinate, redundant) rather than the expanding sense of Bacher's nebulae. Small and abstracted is therefore the correct choice, not a compromise.
+- The alternative was rejected on purpose: making the tops a blank vessel (stripping their New York legibility) would work against what she is interested in, how a city organises and announces itself.
+- Use this only with curators and only as the gallery's reading, never as Jessica's declared influence.
+
+## About diez (for "who are you?" questions)
+- diez is an Amsterdam gallery with an international profile, founded in 2022 by Diego Diez, who studied fine arts, ran non-profit art spaces in Amsterdam and worked with an art advisor before opening; the mix of non-commercial and commercial experience defines it. Exhibitions in Amsterdam, in pop-up spaces and at international fairs.
+- Fair history includes a Frieze London Focus solo booth (Sands Murray-Wassink), ARCO, Liste, Paris Internationale, miart and Art Rotterdam.
+- With Jessica: TBT, duo with Will Thompson at diez (October to December 2024; her CV lists it as Dream State); group show at diez 2025; solo at diez planned for 2027.
+- INTERNAL: never discuss other galleries' relationships with the artist, booth costs, funding, transport or museum plans.
+
+## Open questions for Diego (treat as unconfirmed)
+- Discount policy: what staff may offer without calling Diego.
+- Technical sheet for Sweet Nothing (dimensions and weight per top, power, network, certificate, maintenance).
+- Invoicing and export for UK buyers.
+- Pretend I'm Dead duration: 5:08 in the price list, 4:58 in the wall-text draft.
+- The claim that the taxi-top company was bought by Lyft (keep as "she was told").
