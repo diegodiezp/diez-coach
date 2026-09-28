@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>diez coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: "Replica"; src: url("/fonts/Replica-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Replica"; src: url("/fonts/Replica-Bold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --paper: #EDF1F4;
+  --card: #F8FAFB;
+  --ink: #1E2128;
+  --muted: #5F6875;
+  --line: #CED6DE;
+  --sky: #C7DBEC;
+  --cab: #F3C318;
+  --housing: #16191E;
+  --led: #FFE7A3;
+  --good: #2F7D5B;
+  --warn: #A9502B;
+  --ui: "Replica", "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --dot: "DotGothic16", "Courier New", monospace;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--ui); -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 20px 18px 80px; }
+
+header.top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.brand { font-weight: 600; font-size: 20px; letter-spacing: -0.01em; }
+.brand span { font-weight: 400; color: var(--muted); }
+.dossier-name { color: var(--muted); font-size: 14px; }
+nav.tabs { display: flex; gap: 4px; margin: 18px 0 26px; background: #E1E7EC; padding: 4px; border-radius: 999px; width: max-content; max-width: 100%; }
+nav.tabs button { border: 0; background: none; padding: 7px 16px; border-radius: 999px; cursor: pointer; font-weight: 500; color: var(--muted); }
+nav.tabs button[aria-selected="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 0 var(--line); }
+
+/* The one bold thing: the taxi-top LED panel */
+.who { font-size: 14px; color: var(--muted); margin: 0 0 8px; display: flex; justify-content: space-between; gap: 12px; }
+.who strong { color: var(--ink); font-weight: 600; }
+.panel {
+  position: relative; background: var(--housing); border-radius: 18px 18px 10px 10px;
+  padding: 22px 24px; min-height: 168px; display: flex; align-items: center;
+  box-shadow: inset 0 0 0 6px #22262C, inset 0 0 0 7px #0C0E11;
+}
+.panel::before {
+  content: ""; position: absolute; inset: 7px; border-radius: 12px 12px 5px 5px; pointer-events: none;
+  background-image: radial-gradient(rgba(255,231,163,.07) 1px, transparent 1.4px);
+  background-size: 5px 5px;
+}
+.panel p { position: relative; margin: 0; font-family: var(--dot); color: var(--led); font-size: clamp(19px, 3.6vw, 26px); line-height: 1.35; text-shadow: 0 0 6px rgba(255,210,110,.55), 0 0 18px rgba(255,190,80,.25); }
+.panel p.idle { color: #7C7560; text-shadow: none; }
+.panel .cursor { display: inline-block; width: .55em; height: 1em; background: var(--led); vertical-align: -.12em; margin-left: 4px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .panel .cursor { animation: none; } }
+
+.intent { font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+.intent b { font-weight: 600; color: var(--ink); }
+
+label.field { display: block; font-size: 14px; color: var(--muted); margin: 22px 0 6px; }
+textarea { width: 100%; min-height: 130px; resize: vertical; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); line-height: 1.5; }
+input[type=text], input[type=password], select { padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+.row.spread { justify-content: space-between; }
+.btn { border: 1px solid var(--ink); background: var(--ink); color: var(--card); padding: 10px 16px; border-radius: 999px; cursor: pointer; font-weight: 500; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); }
+.btn.cab { background: var(--cab); border-color: var(--cab); color: var(--ink); }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn.small { padding: 6px 12px; font-size: 14px; }
+.linkish { background: none; border: 0; padding: 0; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: 14px; }
+.mic[aria-pressed="true"] { background: var(--warn); border-color: var(--warn); color: #fff; }
+
+.sheet { margin-top: 22px; border-left: 3px solid var(--cab); padding: 4px 0 4px 18px; }
+.sheet h3, .feedback h3 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+.sheet h3:first-child, .feedback h3:first-child { margin-top: 0; }
+.sheet ul, .feedback ul { margin: 0; padding-left: 20px; }
+.sheet li, .feedback li { margin: 3px 0; }
+.say { font-size: 17px; line-height: 1.6; margin: 0; }
+.avoid { color: var(--warn); font-size: 15px; margin: 10px 0 0; }
+mark { background: #FBE9A6; color: inherit; padding: 0 3px; border-radius: 3px; }
+
+.feedback { margin-top: 24px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.verdict { font-size: 17px; font-weight: 500; margin: 0 0 14px; }
+.scores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 6px; }
+.score span { display: block; font-size: 13px; color: var(--muted); }
+.score .bar { display: flex; gap: 3px; margin-top: 5px; }
+.score .bar i { flex: 1; height: 6px; border-radius: 2px; background: var(--line); }
+.score .bar i.on { background: var(--ink); }
+.factcheck li { color: var(--warn); }
+@media (max-width: 520px) { .scores { grid-template-columns: repeat(2, 1fr); } }
+
+.progress { font-size: 14px; color: var(--muted); }
+.meter { height: 4px; background: var(--line); border-radius: 2px; margin-top: 6px; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--ink); }
+
+.personas { display: grid; gap: 8px; margin-top: 8px; }
+.persona { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; }
+.persona:has(input:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.persona input { margin-top: 5px; accent-color: var(--ink); }
+.persona b { font-weight: 600; }
+.persona small { display: block; color: var(--muted); font-size: 14px; }
+.diff { margin-left: auto; white-space: nowrap; color: var(--muted); font-size: 13px; }
+
+.log { margin-top: 30px; border-top: 1px solid var(--line); padding-top: 14px; }
+.log details { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.log summary { cursor: pointer; font-size: 15px; }
+.log .turn { font-size: 15px; margin: 8px 0; }
+.log .turn b { font-weight: 600; }
+
+.notice { margin: 16px 0; padding: 12px 14px; border-radius: 8px; background: #F6E3DA; color: #6E2F14; font-size: 15px; }
+.notice.soft { background: #E1E7EC; color: var(--ink); }
+.muted { color: var(--muted); }
+.loading { color: var(--muted); font-size: 15px; margin-top: 14px; }
+
+.doc h2 { font-size: 22px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+.doc h3 { font-size: 16px; font-weight: 600; margin: 28px 0 8px; }
+.doc p, .doc li { max-width: 68ch; }
+.doc ul { padding-left: 20px; margin: 0; }
+.doc li { margin: 4px 0; }
+.doc .work { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.doc .gaps li { color: var(--warn); }
+.hidden { display: none !important; }
+
+nav.tabs { overflow-x: auto; scrollbar-width: none; }
+nav.tabs button { flex: 0 0 auto; }
+header.top .me { font-size: 14px; color: var(--muted); }
+header.top .me b { color: var(--ink); font-weight: 600; }
+
+.login { max-width: 420px; margin: 40px 0; }
+.login h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 8px; }
+.login p { color: var(--muted); margin: 0 0 18px; }
+.login input { width: 100%; font-size: 17px; padding: 12px 14px; }
+
+.bigscore { display: flex; align-items: baseline; gap: 10px; margin: 0 0 14px; }
+.bigscore strong { font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+.bigscore span { color: var(--muted); }
+
+.figures { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 18px 0 8px; }
+.figures div { background: var(--card); padding: 14px 14px 12px; }
+.figures strong { display: block; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.figures span { font-size: 13px; color: var(--muted); }
+.figures em { font-style: normal; font-size: 13px; }
+.up { color: var(--good); } .down { color: var(--warn); }
+@media (max-width: 560px) { .figures { grid-template-columns: repeat(2, 1fr); } }
+
+.section-title { font-size: 16px; font-weight: 600; margin: 30px 0 10px; }
+.chart { width: 100%; height: auto; display: block; }
+.chart text { font: 12px var(--ui); fill: var(--muted); }
+.chart .val { fill: var(--ink); font-weight: 600; }
+
+.list { border-top: 1px solid var(--line); }
+.list .item { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.list .item .q { color: var(--muted); font-size: 14px; display: block; margin-top: 2px; }
+.list .item b { font-weight: 600; white-space: nowrap; }
+
+.hbar { display: grid; grid-template-columns: 150px 1fr 40px; gap: 10px; align-items: center; margin: 7px 0; font-size: 15px; }
+.hbar .track { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.hbar .track i { display: block; height: 100%; background: var(--ink); }
+.hbar b { font-weight: 600; text-align: right; }
+@media (max-width: 480px) { .hbar { grid-template-columns: 110px 1fr 34px; font-size: 14px; } }
+
+.steps { display: flex; gap: 4px; margin: 0 0 16px; }
+.steps i { flex: 1; height: 4px; border-radius: 2px; background: var(--line); }
+.steps i.done { background: var(--ink); }
+.steps i.now { background: var(--cab); }
+
+.src { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 10px 0; }
+.src.pending { border-color: var(--cab); box-shadow: inset 3px 0 0 var(--cab); }
+.src-head { margin: 0; }
+.src-head b { font-weight: 600; }
+.src-sum { font-size: 14px; margin: 6px 0 0; }
+.src-sum a { color: var(--ink); }
+.src details { margin-top: 8px; font-size: 14px; }
+.src summary { cursor: pointer; color: var(--muted); }
+.src-edit { min-height: 180px; font-size: 14px; margin-top: 8px; }
+.tag { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #E1E7EC; color: var(--ink); margin-right: 4px; }
+input[type=file] { font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div><div class="brand">diez <span>coach</span></div><div class="dossier-name" id="dossierName">Loading</div></div>
+    <div id="meBox"></div>
+  </header>
+  <nav class="tabs hidden" role="tablist"></nav>
+  <main id="view"></main>
+</div>
+<script>
+(() => {
+  const params = new URLSearchParams(location.search);
+  const DOSSIER_ID = params.get('d') || 'jessica-wilson';
+  const EXAM_ROTATION = ['walkby', 'first', 'skeptic', 'curator', 'press', 'advisor', 'skeptic', 'curator'];
+  const store = {
+    get(k, f) { try { const v = localStorage.getItem(k); return v === null ? f : JSON.parse(v); } catch { return f; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+    del(k) { try { localStorage.removeItem(k); } catch {} }
+  };
+
+  const S = {
+    d: null, tab: 'study', me: null, code: store.get('coach:code', ''), error: '', booting: true,
+    study: { filter: 'all', card: null, seen: [], hints: false, answer: false, used: 0, fb: null, busy: false, checking: false, text: '' },
+    reh: { persona: store.get('coach:persona', 'skeptic'), lang: store.get('coach:lang', 'en'), on: false, done: false,
+           history: [], cur: null, cheat: null, showHints: false, showAnswer: false, used: 0, fb: null, busy: false, text: '', log: [], showIntent: false },
+    exam: { on: false, done: false, id: '', i: 0, cur: null, text: '', busy: false, results: [], lang: 'en', asked: [] },
+    prog: { data: null, person: '', busy: false },
+    src: { list: null, busy: '', msg: '' }
+  };
+  const HELP = ['none', 'hints', 'answer'];
+
+  const $ = (s) => document.querySelector(s);
+  const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const rich = (t) => esc(t).replace(/\[([^\]]+)\]/g, '<mark title="To confirm">$1</mark>');
+  const personaOf = (id) => S.d.personas.find((p) => p.id === id) || S.d.personas[0];
+  const fmtDate = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+
+  // ---------- Server ----------
+  async function call(url, opts = {}) {
+    const r = await fetch(url, { ...opts, headers: { 'content-type': 'application/json', 'x-access-code': S.code, ...(opts.headers || {}) } });
+    let j = {}; try { j = await r.json(); } catch {}
+    if (r.status === 401) { signOut(); throw new Error('That access code is not valid. Ask Diego for yours.'); }
+    if (!r.ok) throw new Error(j.error || `The coach is not reachable (${r.status}).`);
+    return j;
+  }
+  const api = (action, payload) => call('/api/coach', { method: 'POST', body: JSON.stringify({ action, dossier: DOSSIER_ID, ...payload }) });
+
+  async function signIn(code) {
+    S.code = code; const who = await call('/api/progress?whoami=1');
+    S.me = who; store.set('coach:code', code); S.prog.person = who.me;
+    call(`/api/progress?person=${encodeURIComponent(who.me)}`).then((p) => { S.prog.data = p; }).catch(() => {});
+    loadSources(true);
+  }
+  function signOut() { S.me = null; S.code = ''; store.del('coach:code'); }
+
+  // ---------- Shared pieces ----------
+  const LABELS = { accuracy: 'Accuracy', clarity: 'Clarity', persuasion: 'Persuasion', listening: 'Listening' };
+  function bars(n) { return `<div class="bar">${[1, 2, 3, 4, 5].map((k) => `<i class="${k <= Math.round(n || 0) ? 'on' : ''}"></i>`).join('')}</div>`; }
+  function feedbackHTML(fb, withNext) {
+    const s = fb.scores || {};
+    return `<div class="feedback">
+      <div class="bigscore"><strong>${fb.score ?? '-'}</strong><span>/ 100</span></div>
+      <p class="verdict">${esc(fb.verdict)}</p>
+      <div class="scores">${Object.keys(LABELS).map((k) => `<div class="score"><span>${LABELS[k]} ${s[k] ?? '-'}/5</span>${bars(s[k])}</div>`).join('')}</div>
+      ${fb.factcheck && fb.factcheck.length ? `<h3>Check these facts</h3><ul class="factcheck">${fb.factcheck.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      ${fb.worked && fb.worked.length ? `<h3>What worked</h3><ul>${fb.worked.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      ${fb.missing && fb.missing.length ? `<h3>What was missing</h3><ul>${fb.missing.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      <h3>Stronger version</h3><p class="say">${rich(fb.stronger)}</p>
+      ${withNext && fb.next ? `<p class="intent" style="margin-top:14px"><b>The visitor replies:</b> ${esc(fb.next)}</p>` : ''}
+      ${fb.proposed ? `<p class="muted" style="font-size:13px;margin:12px 0 0">Strong answer: proposed as a house line, pending approval.</p>` : ''}
+      ${fb.logged === false && fb.logError ? `<p class="muted" style="font-size:13px;margin:12px 0 0">Not saved to progress: ${esc(fb.logError)}</p>` : ''}
+    </div>`;
+  }
+  function sheetHTML(c, hints, answer) {
+    if (!c || (!hints && !answer)) return '';
+    return `<div class="sheet">
+      ${hints ? `<h3>Key points</h3><ul>${(c.keyPoints || []).map((k) => `<li>${rich(k)}</li>`).join('')}</ul>` : ''}
+      ${answer ? `<h3>A strong answer</h3><p class="say">${rich(c.answer)}</p><p class="avoid">Avoid: ${esc(c.avoid)}</p>` : ''}
+    </div>`;
+  }
+  const errHTML = () => (S.error ? `<div class="notice">${esc(S.error)}</div>` : '');
+  const panel = (text, idle) => `<div class="panel">${text ? `<p>${esc(text)}</p>` : `<p class="idle">${esc(idle)}<span class="cursor"></span></p>`}</div>`;
+
+  // ---------- Login ----------
+  function renderLogin() {
+    return `<div class="login">
+      <h1>Rehearse the booth before the booth.</h1>
+      <p>Enter your personal access code. Every answer you give is scored and added to your progress.</p>
+      <input type="password" id="loginCode" placeholder="Access code" autocomplete="off" aria-label="Access code">
+      <div class="row"><button class="btn" data-act="login">Enter</button></div>
+      ${errHTML()}
+    </div>`;
+  }
+
+  // ---------- Study ----------
+  function renderStudy() {
+    const st = S.study, card = st.card, p = card && personaOf(card.persona);
+    const opts = [`<option value="all">Any visitor</option>`, ...S.d.personas.map((x) => `<option value="${x.id}" ${st.filter === x.id ? 'selected' : ''}>${esc(x.name)}</option>`)].join('');
+    return `
+      <div class="row spread" style="margin-top:0">
+        <select id="filter" aria-label="Visitor">${opts}</select>
+        <span class="progress">${st.seen.length ? `${st.seen.length} studied this session` : 'Claude writes a new question every time'}</span>
+      </div>
+      <div style="margin-top:22px">
+        <p class="who"><span>${p ? `<strong>${esc(p.name)}</strong> asks` : '&nbsp;'}</span></p>
+        ${panel(card && card.q, st.busy && !st.checking ? 'Thinking of a question' : 'Press New question')}
+        ${card ? `<p class="intent"><b>What this tests:</b> ${esc(card.intent)}</p>` : ''}
+      </div>
+      ${card ? `
+      <label class="field" for="studyText">Say it out loud, or write it here and get it scored</label>
+      <textarea id="studyText" placeholder="Your answer">${esc(st.text)}</textarea>
+      <div class="row">
+        ${micButton('studyText')}
+        <button class="btn ghost" data-act="hints">${st.hints ? 'Hide hints' : 'Show hints'}</button>
+        <button class="btn cab" data-act="answer">${st.answer ? 'Hide the answer' : 'What would you answer?'}</button>
+        <button class="btn ghost" data-act="check" ${st.busy ? 'disabled' : ''}>${st.checking ? 'Scoring' : 'Score my answer'}</button>
+      </div>
+      ${sheetHTML(card, st.hints, st.answer)}` : ''}
+      ${errHTML()}
+      ${st.fb ? feedbackHTML(st.fb, false) : ''}
+      <div class="row" style="margin-top:28px">
+        <button class="btn" data-act="newq" ${st.busy ? 'disabled' : ''}>${st.busy && !st.checking ? 'Thinking' : 'New question'}</button>
+      </div>
+      <p class="muted" style="font-size:14px;margin-top:16px">Scores count more when you answer before opening the hints. Peeking is recorded.</p>`;
+  }
+
+  // ---------- Rehearse ----------
+  function renderRehearse() {
+    const r = S.reh;
+    if (!r.on) return renderSetup();
+    const p = personaOf(r.persona);
+    return `
+      <div class="row spread" style="margin-top:0">
+        <span class="progress">Rehearsing with <strong style="color:var(--ink)">${esc(p.name)}</strong>${r.log.length ? `, ${r.log.length} answered` : ''}</span>
+        <button class="btn ghost small" data-act="end">End session</button>
+      </div>
+      ${r.done ? summaryHTML() : `
+      <div style="margin-top:18px">
+        ${panel(r.cur && r.cur.question, 'Walking up to the booth')}
+        ${r.cur ? `<p class="intent">${r.showIntent ? `<b>What this tests:</b> ${esc(r.cur.intent)}` : `<button class="linkish" data-act="intent">What is this testing?</button>`}</p>` : ''}
+      </div>
+      ${r.cur && !r.fb ? `
+        <label class="field" for="rehText">Your answer</label>
+        <textarea id="rehText" placeholder="Answer as you would at the booth">${esc(r.text)}</textarea>
+        <div class="row">
+          ${micButton('rehText')}
+          <button class="btn" data-act="send" ${r.busy ? 'disabled' : ''}>${r.busy ? 'Working' : 'Send answer'}</button>
+          <button class="btn ghost" data-act="rhints" ${r.busy ? 'disabled' : ''}>${r.showHints ? 'Hide hints' : 'Hint'}</button>
+          <button class="btn cab" data-act="ranswer" ${r.busy ? 'disabled' : ''}>${r.showAnswer ? 'Hide the answer' : 'What would you answer?'}</button>
+        </div>
+        ${sheetHTML(r.cheat, r.showHints, r.showAnswer)}` : ''}
+      ${errHTML()}
+      ${r.fb ? feedbackHTML(r.fb, true) + `<div class="row"><button class="btn" data-act="next" ${r.busy ? 'disabled' : ''}>${r.busy ? 'Thinking' : 'Continue the conversation'}</button><button class="btn ghost" data-act="end">End session</button></div>` : ''}`}
+      ${r.log.length ? `<div class="log"><p class="muted" style="margin:0 0 6px;font-size:14px">This session</p>${r.log.map((t, i) => `
+        <details><summary>${i + 1}. ${esc(t.q)} <span class="muted">(${t.fb.score})</span></summary>
+          <p class="turn"><b>You:</b> ${esc(t.a)}</p><p class="turn"><b>Stronger:</b> ${rich(t.fb.stronger)}</p></details>`).join('')}</div>` : ''}`;
+  }
+  function personaPicker(name, selected) {
+    return `<div class="personas">${S.d.personas.map((p) => `
+      <label class="persona"><input type="radio" name="${name}" value="${p.id}" ${selected === p.id ? 'checked' : ''}>
+        <span><b>${esc(p.name)}</b><small>${esc(p.short)}</small></span>
+        <span class="diff">${'●'.repeat(p.difficulty)}${'○'.repeat(3 - p.difficulty)}</span></label>`).join('')}</div>`;
+  }
+  const langSelect = (id, v) => `<select id="${id}" aria-label="Language"><option value="en" ${v === 'en' ? 'selected' : ''}>In English</option><option value="es" ${v === 'es' ? 'selected' : ''}>En español</option></select>`;
+  function renderSetup() {
+    const r = S.reh;
+    return `
+      <p style="margin-top:0;max-width:62ch">Pick who walks up to the booth. The visitor reacts to what you say and keeps pushing. After each answer you get a score and a stronger version. Stuck? Ask for a hint or the full answer first.</p>
+      ${personaPicker('persona', r.persona)}
+      <div class="row" style="margin-top:20px">${langSelect('lang', r.lang)}
+        <button class="btn" data-act="start" ${r.busy ? 'disabled' : ''}>${r.busy ? 'Starting' : 'Start rehearsal'}</button></div>
+      ${errHTML()}`;
+  }
+  function summaryHTML() {
+    const log = S.reh.log;
+    if (!log.length) return `<p class="muted" style="margin-top:20px">No answers in this session.</p><div class="row"><button class="btn" data-act="restart">New session</button></div>`;
+    const avg = Math.round(log.reduce((a, t) => a + t.fb.score, 0) / log.length);
+    const missing = log.flatMap((t) => t.fb.missing || []).slice(0, 8);
+    return `<div class="feedback" style="margin-top:18px">
+      <div class="bigscore"><strong>${avg}</strong><span>/ 100, session average over ${log.length} answers</span></div>
+      ${missing.length ? `<h3>Work on next</h3><ul>${missing.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+    </div><div class="row"><button class="btn" data-act="restart">New session</button></div>`;
+  }
+
+  // ---------- Exam ----------
+  function renderExam() {
+    const x = S.exam, total = EXAM_ROTATION.length;
+    if (!x.on && !x.done) return `
+      <p style="margin-top:0;max-width:62ch">Eight visitors in a row, from the thirty-second walk-by to the art advisor. No hints and no crib sheet. You see your score only at the end, and it goes straight into your progress. This is the number that counts.</p>
+      <div class="row">${langSelect('examLang', x.lang)}<button class="btn" data-act="examStart" ${x.busy ? 'disabled' : ''}>${x.busy ? 'Preparing' : 'Start the exam'}</button></div>
+      ${errHTML()}`;
+    if (x.done) {
+      const avg = Math.round(x.results.reduce((a, t) => a + t.fb.score, 0) / (x.results.length || 1));
+      return `<div class="feedback" style="margin-top:0">
+          <div class="bigscore"><strong>${avg}</strong><span>/ 100, exam score</span></div>
+          <p class="verdict">${avg >= 80 ? 'Fair-ready.' : avg >= 65 ? 'Solid. A few answers still need work.' : 'Keep studying, then take it again.'}</p>
+        </div>
+        <div class="log">${x.results.map((t, i) => `
+          <details><summary>${i + 1}. ${esc(personaOf(t.persona).name)}: <span class="muted">${t.fb.score}</span></summary>
+            <p class="turn"><b>Question:</b> ${esc(t.q)}</p><p class="turn"><b>You:</b> ${esc(t.a)}</p>
+            <p class="turn"><b>Verdict:</b> ${esc(t.fb.verdict)}</p><p class="turn"><b>Stronger:</b> ${rich(t.fb.stronger)}</p></details>`).join('')}</div>
+        <div class="row" style="margin-top:20px"><button class="btn" data-act="examReset">Take it again</button><button class="btn ghost" data-act="goProgress">See progress</button></div>`;
+    }
+    const p = personaOf(EXAM_ROTATION[x.i]);
+    return `
+      <div class="steps">${EXAM_ROTATION.map((_, i) => `<i class="${i < x.i ? 'done' : i === x.i ? 'now' : ''}"></i>`).join('')}</div>
+      <p class="who"><span><strong>${esc(p.name)}</strong></span><span>${x.i + 1} / ${total}</span></p>
+      ${panel(x.cur && x.cur.question, x.busy ? 'Next visitor coming' : '')}
+      ${x.cur ? `
+        <label class="field" for="examText">Your answer</label>
+        <textarea id="examText" placeholder="Answer as you would at the booth">${esc(x.text)}</textarea>
+        <div class="row">${micButton('examText')}
+          <button class="btn" data-act="examSend" ${x.busy ? 'disabled' : ''}>${x.busy ? 'Scoring' : x.i + 1 === total ? 'Finish the exam' : 'Next visitor'}</button></div>` : ''}
+      ${errHTML()}`;
+  }
+
+  // ---------- Progress ----------
+  function renderProgress() {
+    const pg = S.prog, me = S.me;
+    const picker = me.admin && me.people.length > 1 ? `<select id="personPick" aria-label="Person">${me.people.map((n) => `<option ${n === pg.person ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select>` : '';
+    const head = `<div class="row spread" style="margin-top:0">${picker || `<span class="progress">${esc(pg.person)}</span>`}
+      <button class="btn ghost small" data-act="progLoad" ${pg.busy ? 'disabled' : ''}>${pg.busy ? 'Loading' : 'Refresh'}</button></div>`;
+    if (pg.busy && !pg.data) return head + `<p class="loading">Loading progress.</p>`;
+    if (S.error && !pg.data) return head + errHTML();
+    if (!pg.data) return head;
+    if (!pg.data.tracking) return head + `<div class="notice soft">Progress tracking is off. Add AIRTABLE_TOKEN in Vercel to switch it on.</div>`;
+    const s = pg.data.stats;
+    if (!s || !s.answers) return head + `<p class="muted" style="margin-top:20px">No scored answers yet. Every answer scored in Study, Rehearse or Exam appears here.</p>`;
+    const delta = s.avg7 != null && s.avgPrev7 != null ? s.avg7 - s.avgPrev7 : null;
+    return head + `
+      <div class="figures">
+        <div><strong>${s.avg7 ?? '-'}</strong><span>Last 7 days</span> ${delta != null ? `<em class="${delta >= 0 ? 'up' : 'down'}">${delta >= 0 ? '+' : ''}${delta}</em>` : ''}</div>
+        <div><strong>${s.bestExam ?? '-'}</strong><span>Best exam</span></div>
+        <div><strong>${s.answers}</strong><span>Answers, ${s.activeDays} days</span></div>
+        <div><strong>${s.helpRate ?? '-'}${s.helpRate != null ? '%' : ''}</strong><span>Peeked first</span></div>
+      </div>
+      <p class="muted" style="font-size:14px;margin:0">Last active ${s.lastActive ? fmtDate(s.lastActive) : '-'}. All scores out of 100.</p>
+      <div class="row"><button class="btn ghost small" data-act="copyReport">Copy a progress report</button><span id="copied" class="muted" style="font-size:14px"></span></div>
+
+      <h2 class="section-title">Weekly average</h2>${weeklyChart(s.weekly)}
+      <h2 class="section-title">Exams</h2>
+      ${s.exams.length ? `<div class="list">${s.exams.map((e) => `<div class="item"><span>${fmtDate(e.date)}</span><b>${e.score}</b></div>`).join('')}</div>` : `<p class="muted">No completed exams yet.</p>`}
+      <h2 class="section-title">By criterion</h2>
+      ${Object.entries(s.criteria).map(([k, v]) => `<div class="hbar"><span>${k}</span><div class="track"><i style="width:${((v || 0) / 5) * 100}%"></i></div><b>${v ?? '-'}</b></div>`).join('')}
+      <h2 class="section-title">By visitor, weakest first</h2>
+      ${s.byPersona.map((b) => `<div class="hbar"><span>${esc(b.persona.replace(/^The /, ''))}</span><div class="track"><i style="width:${b.avg}%"></i></div><b>${b.avg}</b></div>`).join('')}
+      <h2 class="section-title">Recent answers</h2>
+      <div class="list">${s.recent.map((r) => `<div class="item"><span>${fmtDate(r.date)}, ${esc(r.mode)}${r.help && r.help !== 'None' ? `, peeked (${esc(r.help.toLowerCase())})` : ''}<span class="q">${esc(r.question)}</span></span><b>${r.score}</b></div>`).join('')}</div>`;
+  }
+  function weeklyChart(weeks) {
+    if (!weeks.length) return '<p class="muted">No data yet.</p>';
+    const W = 640, H = 200, pad = 26, bw = (W - pad) / weeks.length;
+    return `<svg class="chart" viewBox="0 0 ${W} ${H + 24}" role="img" aria-label="Average score per week">
+      ${[50, 75, 100].map((v) => `<line x1="${pad}" x2="${W}" y1="${H - (v / 100) * (H - 20)}" y2="${H - (v / 100) * (H - 20)}" stroke="var(--line)" /><text x="0" y="${H - (v / 100) * (H - 20) + 4}">${v}</text>`).join('')}
+      ${weeks.map((w, i) => { const h = (w.avg / 100) * (H - 20), x = pad + i * bw + bw * 0.18, bwi = bw * 0.64;
+        return `<rect x="${x}" y="${H - h}" width="${bwi}" height="${h}" rx="3" fill="var(--ink)" />
+          <text class="val" x="${x + bwi / 2}" y="${H - h - 6}" text-anchor="middle">${w.avg}</text>
+          <text x="${x + bwi / 2}" y="${H + 18}" text-anchor="middle">${fmtDate(w.week)}</text>`; }).join('')}
+    </svg>`;
+  }
+  async function loadProgress() {
+    S.prog.busy = true; render();
+    try { S.prog.data = await call(`/api/progress?person=${encodeURIComponent(S.prog.person || S.me.me)}`); }
+    catch (e) { S.error = e.message; }
+    S.prog.busy = false; render();
+  }
+
+  // ---------- Dossier ----------
+  function renderDossier() {
+    const d = S.d, a = d.artist;
+    const approved = (S.src.list || []).filter((x) => x.Status === 'Approved');
+    const brief = approved.find((x) => x.Kind === 'Briefing');
+    let B = null; try { B = brief ? JSON.parse(brief.Content) : null; } catch { B = null; }
+    const ul = (arr, cls) => `<ul${cls ? ` class="${cls}"` : ''}>${(arr || []).map((x) => `<li>${rich(x)}</li>`).join('')}</ul>`;
+    return `<div class="doc">
+      <h2>${esc(d.title)}</h2><p class="muted" style="margin:0">${esc(d.subtitle)}</p>
+      <p>${rich(d.context)}</p>
+      ${B ? `<p class="notice soft">Briefing rebuilt ${fmtDate(brief.Date)} from ${approved.length - 1} approved sources.</p>
+        <h3>Key messages</h3>${ul(B.keyMessages)}
+        <h3>Prices and availability</h3>${ul(B.prices)}
+        <h3>Facts</h3>${ul(B.facts)}
+        <h3>Language</h3>${ul(B.language)}
+        ${B.context && B.context.length ? `<h3>Art-world context</h3>${ul(B.context)}` : ''}
+        <h3>Don't say</h3>${ul(B.doNotSay)}
+        <h3>Still to confirm</h3>${ul(B.gaps, 'gaps')}` : `
+        <h3>In one sentence</h3><p>${esc(a.oneLiner)}</p>
+        <ul><li>Born ${esc(a.born)}</li><li>Based in ${esc(a.based)}</li><li>${esc(a.education)}</li><li>${esc(a.mediums)}</li></ul>
+        <h3>Key messages</h3>${ul(d.keyMessages)}
+        <h3>The booth</h3>${ul([d.booth.floor, d.booth.walls, d.booth.animation])}
+        <h3>In her words</h3>${ul(a.ownWords)}
+        <h3>Language</h3>${ul(d.language)}
+        <h3>Don't say</h3>${ul(d.doNotSay)}
+        <h3>Still to confirm</h3>${ul(d.gaps, 'gaps')}`}
+      <h3>Works</h3>${d.works.map((w) => `<div class="work"><b>${esc(w.title)}</b> <span class="muted">${rich(w.year)}, ${esc(w.type)}</span>
+        <p style="margin:6px 0 0">${esc(w.description)}</p><p style="margin:4px 0 0;font-size:15px">${rich(w.price)}</p></div>`).join('')}
+      <h3>Exhibitions</h3>${ul(d.exhibitions)}
+      <h3>Press</h3>${ul(d.press)}
+      <h3>Stories</h3>${d.stories.map((s) => `<p><b>${esc(s.title)}.</b> ${esc(s.text)} <span class="muted">${esc(s.status)}</span></p>`).join('')}
+      <p class="muted" style="margin-top:22px;font-size:14px">Highlighted text is unconfirmed. Never state it as fact at the booth.</p>
+    </div>`;
+  }
+
+  // ---------- Dictation ----------
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let rec = null, recTarget = null;
+  function micButton(target) {
+    if (!SR) return '';
+    const on = rec && recTarget === target;
+    return `<button class="btn ghost mic" data-act="mic" data-target="${target}" aria-pressed="${on ? 'true' : 'false'}">${on ? 'Stop dictating' : 'Dictate'}</button>`;
+  }
+  function toggleMic(target) {
+    if (rec) { rec.stop(); return; }
+    const el = document.getElementById(target); if (!el) return;
+    const es = (S.tab === 'rehearse' && S.reh.lang === 'es') || (S.tab === 'exam' && S.exam.lang === 'es');
+    rec = new SR(); recTarget = target; rec.lang = es ? 'es-ES' : 'en-GB'; rec.continuous = true; rec.interimResults = true;
+    const base = el.value ? el.value.trimEnd() + ' ' : '';
+    rec.onresult = (e) => {
+      let txt = ''; for (let i = 0; i < e.results.length; i++) txt += e.results[i][0].transcript;
+      const box = document.getElementById(target); if (box) { box.value = base + txt; syncText(target, box.value); }
+    };
+    rec.onend = () => { rec = null; recTarget = null; render(); };
+    rec.onerror = () => { S.error = 'Dictation stopped. Check microphone permission.'; };
+    rec.start(); render();
+  }
+  function syncText(id, v) { if (id === 'studyText') S.study.text = v; if (id === 'rehText') S.reh.text = v; if (id === 'examText') S.exam.text = v; }
+
+  // ---------- Actions ----------
+  async function act(name, el) {
+    S.error = '';
+    const st = S.study, r = S.reh, x = S.exam;
+    try {
+      switch (name) {
+        case 'login': {
+          const code = ($('#loginCode').value || '').trim(); if (!code) break;
+          await signIn(code); break; }
+        case 'logout': signOut(); break;
+
+        case 'hints': st.hints = !st.hints; if (st.hints) st.used = Math.max(st.used, 1); break;
+        case 'answer': st.answer = !st.answer; if (st.answer) st.used = 2; break;
+        case 'newq': {
+          const ids = S.d.personas.map((p) => p.id);
+          const persona = st.filter === 'all' ? adaptivePersona(ids) : st.filter;
+          Object.assign(st, { busy: true, card: null, hints: false, answer: false, used: 0, fb: null, text: '' }); render();
+          const c = await api('card', { persona, lang: 'en', seen: st.seen.slice(-25), focus: weakestCriterion() });
+          st.card = { ...c, persona, keyPoints: c.keyPoints || [] }; st.seen.push(c.q); break; }
+        case 'check': {
+          if (!st.text.trim()) { S.error = 'Write or dictate your answer first.'; break; }
+          st.busy = true; st.checking = true; render();
+          st.fb = await api('evaluate', { mode: 'study', help: HELP[st.used], persona: st.card.persona, lang: 'en', question: st.card.q, answer: st.text, history: [] });
+          break; }
+
+        case 'start': {
+          const picked = document.querySelector('input[name=persona]:checked');
+          r.persona = picked ? picked.value : r.persona; r.lang = $('#lang').value;
+          store.set('coach:persona', r.persona); store.set('coach:lang', r.lang);
+          Object.assign(r, { history: [], log: [], cur: null, fb: null, cheat: null, text: '', done: false, showIntent: false, showHints: false, showAnswer: false, used: 0, busy: true });
+          render();
+          const q = await api('question', { persona: r.persona, lang: r.lang, history: [] });
+          r.on = true; r.cur = q; r.history.push({ role: 'visitor', text: q.question }); break; }
+        case 'intent': r.showIntent = true; break;
+        case 'rhints': case 'ranswer': {
+          const key = name === 'rhints' ? 'showHints' : 'showAnswer';
+          if (r[key]) { r[key] = false; break; }
+          if (!r.cheat) { r.busy = true; render(); r.cheat = await api('cheat', { mode: 'rehearse', persona: r.persona, lang: r.lang, question: r.cur.question, history: r.history.slice(0, -1) }); }
+          r[key] = true; r.used = Math.max(r.used, name === 'rhints' ? 1 : 2); break; }
+        case 'send': {
+          if (!r.text.trim()) { S.error = 'Write or dictate your answer first.'; break; }
+          r.busy = true; render();
+          const fb = await api('evaluate', { mode: 'rehearse', help: HELP[r.used], persona: r.persona, lang: r.lang, question: r.cur.question, answer: r.text, history: r.history.slice(0, -1) });
+          r.fb = fb; r.history.push({ role: 'gallery', text: r.text }); r.log.push({ q: r.cur.question, a: r.text, fb }); break; }
+        case 'next': {
+          const fb = r.fb;
+          Object.assign(r, { fb: null, cheat: null, text: '', showIntent: false, showHints: false, showAnswer: false, used: 0 });
+          if (fb.next) { r.cur = { question: fb.next, intent: fb.nextIntent || '' }; }
+          else { r.busy = true; render(); r.cur = await api('question', { persona: r.persona, lang: r.lang, history: r.history }); }
+          r.history.push({ role: 'visitor', text: r.cur.question }); break; }
+        case 'end': r.done = true; break;
+        case 'restart': Object.assign(r, { on: false, done: false }); break;
+
+        case 'examStart': {
+          x.lang = $('#examLang').value;
+          Object.assign(x, { on: true, done: false, id: 'ex-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), i: 0, results: [], asked: [], cur: null, text: '', busy: true });
+          render(); await examNext(); break; }
+        case 'examSend': {
+          if (!x.text.trim()) { S.error = 'Write or dictate your answer first. A blank answer scores 1.'; break; }
+          x.busy = true; render();
+          const persona = EXAM_ROTATION[x.i];
+          const fb = await api('evaluate', { mode: 'exam', examId: x.id, persona, lang: x.lang, question: x.cur.question, answer: x.text, history: [] });
+          x.results.push({ persona, q: x.cur.question, a: x.text, fb });
+          if (x.i + 1 >= EXAM_ROTATION.length) { x.on = false; x.done = true; S.prog.data = null; break; }
+          x.i += 1; x.cur = null; x.text = ''; render(); await examNext(); break; }
+        case 'examReset': Object.assign(x, { on: false, done: false, results: [] }); break;
+        case 'goProgress': S.tab = 'progress'; loadProgress(); return;
+
+        case 'progLoad': loadProgress(); return;
+        case 'copyReport': {
+          const s = S.prog.data.stats;
+          const txt = `${S.prog.person}, diez coach (${S.d.title}): last 7 days ${s.avg7 ?? '-'}/100 over ${s.n7} answers; best exam ${s.bestExam ?? '-'}/100; ${s.answers} answers across ${s.activeDays} days; peeked before answering ${s.helpRate ?? 0}% of the time. Weakest visitor: ${s.byPersona[0] ? `${s.byPersona[0].persona} (${s.byPersona[0].avg})` : '-'}.`;
+          try { await navigator.clipboard.writeText(txt); $('#copied').textContent = 'Copied'; } catch { prompt('Copy this report', txt); }
+          return; }
+        case 'mic': toggleMic(el.dataset.target); return;
+        case 'srcNote': case 'srcResearch': case 'srcPreset': case 'srcBrief': case 'srcApprove': case 'srcArchive': case 'srcSave':
+          await srcAction(name, el); break;
+      }
+    } catch (e) { S.error = e.message; }
+    st.busy = false; st.checking = false; r.busy = false; x.busy = false; S.src.busy = '';
+    render();
+  }
+  // Adaptive practice: weaker visitors come up more often.
+  function adaptivePersona(ids) {
+    const stats = S.prog.data && S.prog.data.stats;
+    const byName = {}; if (stats) stats.byPersona.forEach((b) => { byName[b.persona] = b.avg; });
+    const w = ids.map((id) => { const avg = byName[personaOf(id).name]; return avg == null ? 60 : Math.max(10, 105 - avg); });
+    let r = Math.random() * w.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < ids.length; i++) { r -= w[i]; if (r <= 0) return ids[i]; }
+    return ids[0];
+  }
+  function weakestCriterion() {
+    const c = S.prog.data && S.prog.data.stats && S.prog.data.stats.criteria; if (!c) return '';
+    const e = Object.entries(c).filter(([, v]) => v != null).sort((a, b) => a[1] - b[1])[0];
+    return e && e[1] < 3.8 ? `${e[0].toLowerCase()} (average ${e[1]} of 5)` : '';
+  }
+
+  // ---------- Sources (the feeder) ----------
+  async function loadSources(silent) {
+    if (!silent) { S.src.busy = 'load'; render(); }
+    try { S.src.list = (await call(`/api/sources?dossier=${encodeURIComponent(DOSSIER_ID)}`)).sources; }
+    catch (e) { if (!silent) S.error = e.message; }
+    S.src.busy = ''; if (!silent || S.tab === 'dossier' || S.tab === 'sources') render();
+  }
+  const srcApi = (action, payload) => call('/api/sources', { method: 'POST', body: JSON.stringify({ action, dossier: DOSSIER_ID, ...payload }) });
+  const loaded = {};
+  function loadScript(url) {
+    if (loaded[url]) return loaded[url];
+    return (loaded[url] = new Promise((ok, ko) => { const s = document.createElement('script'); s.src = url; s.onload = ok; s.onerror = () => ko(new Error('Could not load the file reader')); document.head.appendChild(s); }));
+  }
+  async function extractText(file) {
+    const name = file.name.toLowerCase();
+    if (name.endsWith('.pdf')) {
+      await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      const pdf = await window.pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+      let out = '';
+      for (let i = 1; i <= pdf.numPages; i++) { const t = await (await pdf.getPage(i)).getTextContent(); out += t.items.map((x) => x.str).join(' ') + '\n\n'; }
+      return out;
+    }
+    if (name.endsWith('.docx')) {
+      await loadScript('https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js');
+      return (await window.mammoth.extractRawText({ arrayBuffer: await file.arrayBuffer() })).value;
+    }
+    if (/\.(txt|md|csv|srt|vtt|json)$/.test(name)) return file.text();
+    throw new Error('Use PDF, Word (.docx), or a text file.');
+  }
+  const KIND_ORDER = ['Briefing', 'File', 'Note', 'House line', 'Web'];
+  function sourceCard(x) {
+    const pending = x.Status === 'Pending';
+    return `<div class="src ${pending ? 'pending' : ''}">
+      <p class="src-head"><span class="tag">${esc(x.Kind)}</span> <b>${esc(x.Title)}</b></p>
+      ${x.Summary ? `<p class="muted src-sum">${esc(x.Summary)}</p>` : ''}
+      ${x.Conflicts ? `<p class="avoid">Conflicts: ${esc(x.Conflicts)}</p>` : ''}
+      ${x.URL ? `<p class="src-sum"><a href="${esc(x.URL)}" target="_blank" rel="noopener">${esc(x.URL.replace(/^https?:\/\//, '').slice(0, 60))}</a></p>` : ''}
+      <details><summary>${pending ? 'Read and edit before approving' : 'Content'}</summary>
+        <textarea id="edit-${x.id}" class="src-edit">${esc(x.Content)}</textarea>
+        <div class="row"><button class="btn ghost small" data-act="srcSave" data-id="${x.id}">Save edits</button></div>
+      </details>
+      <div class="row">
+        ${pending ? `<button class="btn small" data-act="srcApprove" data-id="${x.id}">Approve</button>` : ''}
+        <button class="btn ghost small" data-act="srcArchive" data-id="${x.id}">${pending ? 'Discard' : 'Remove from coach'}</button>
+      </div></div>`;
+  }
+  function renderSources() {
+    const sc = S.src, list = sc.list || [];
+    const pending = list.filter((x) => x.Status === 'Pending');
+    const approved = list.filter((x) => x.Status === 'Approved').sort((a, b) => KIND_ORDER.indexOf(a.Kind) - KIND_ORDER.indexOf(b.Kind));
+    const brief = approved.find((x) => x.Kind === 'Briefing');
+    const presets = [`Press and reviews about ${S.d.artist.name}`, 'Recent exhibitions about infrastructure, screens, smoke and atmosphere', 'Frieze London 2026 news and highlights', 'Market for LED, light and moving-image work in 2026'];
+    return `
+      <p style="margin-top:0;max-width:62ch">Everything the coach knows. New material waits here until you approve it; only approved sources reach the visitors and the scoring.</p>
+      <h2 class="section-title">Feed a document</h2>
+      <input type="file" id="srcFile" accept=".pdf,.docx,.txt,.md,.csv,.srt,.vtt" ${sc.busy ? 'disabled' : ''}>
+      <p class="muted" style="font-size:14px;margin:6px 0 0">PDF, Word or text. Claude extracts the useful facts, strips personal data and flags contradictions.</p>
+      <details style="margin-top:14px"><summary>Or paste a note</summary>
+        <input type="text" id="noteTitle" placeholder="Title, e.g. Call with Jessica about pricing" style="width:100%;margin-top:10px">
+        <textarea id="noteText" placeholder="Anything the team should know" style="margin-top:8px;min-height:100px"></textarea>
+        <div class="row"><button class="btn ghost small" data-act="srcNote" ${sc.busy ? 'disabled' : ''}>Add note</button></div>
+      </details>
+      <h2 class="section-title">Research the web</h2>
+      <div class="row" style="margin-top:0"><input type="text" id="resQuery" placeholder="What should Claude look up?" style="flex:1;min-width:200px">
+        <button class="btn ghost" data-act="srcResearch" ${sc.busy ? 'disabled' : ''}>${sc.busy === 'research' ? 'Searching' : 'Research'}</button></div>
+      <div class="row">${presets.map((p) => `<button class="linkish" data-act="srcPreset" data-q="${esc(p)}">${esc(p)}</button>`).join('')}</div>
+      <p class="muted" style="font-size:14px">Also runs by itself every Monday morning. Findings arrive below for approval.</p>
+      <h2 class="section-title">Briefing</h2>
+      <p style="margin:0 0 6px">${brief ? `Last built ${fmtDate(brief.Date)}. ${esc(brief.Summary || '')}` : 'Not built yet.'} Rebuild after approving new material so the whole coach reads it as one clean document.</p>
+      <button class="btn cab" data-act="srcBrief" ${sc.busy ? 'disabled' : ''}>${sc.busy === 'brief' ? 'Building' : 'Rebuild briefing'}</button>
+      ${sc.busy === 'ingest' ? `<p class="loading">Reading and extracting. This can take a minute for long files.</p>` : ''}
+      ${sc.msg ? `<div class="notice soft">${esc(sc.msg)}</div>` : ''}
+      ${errHTML()}
+      <h2 class="section-title">Waiting for approval (${pending.length})</h2>
+      ${pending.length ? pending.map(sourceCard).join('') : '<p class="muted">Nothing pending.</p>'}
+      <h2 class="section-title">In the coach (${approved.length})</h2>
+      ${approved.length ? approved.map(sourceCard).join('') : '<p class="muted">Only the base dossier so far.</p>'}`;
+  }
+  async function srcAction(name, el) {
+    const sc = S.src; sc.msg = '';
+    if (name === 'srcNote') {
+      const title = $('#noteTitle').value.trim() || 'Note', text = $('#noteText').value.trim();
+      if (!text) { S.error = 'Write the note first.'; return; }
+      sc.busy = 'ingest'; render();
+      await srcApi('ingest', { kind: 'Note', title, text }); sc.msg = 'Note processed. Review it below.';
+    }
+    if (name === 'srcResearch' || name === 'srcPreset') {
+      const q = name === 'srcPreset' ? el.dataset.q : $('#resQuery').value.trim();
+      if (!q) { S.error = 'Write what to research.'; return; }
+      sc.busy = 'research'; render();
+      const r = await srcApi('research', { query: q }); sc.msg = r.sources.length ? `${r.sources.length} ${r.sources.length === 1 ? "finding" : "findings"} to review.` : 'Nothing new found.';
+    }
+    if (name === 'srcBrief') { sc.busy = 'brief'; render(); await srcApi('brief', {}); sc.msg = 'Briefing rebuilt. The coach now uses it.'; }
+    if (name === 'srcApprove') await srcApi('approve', { id: el.dataset.id });
+    if (name === 'srcArchive') await srcApi('archive', { id: el.dataset.id });
+    if (name === 'srcSave') { await srcApi('edit', { id: el.dataset.id, content: $(`#edit-${el.dataset.id}`).value }); sc.msg = 'Saved.'; }
+    sc.busy = '';
+    await loadSources(true);
+  }
+  async function onFile(file) {
+    const sc = S.src; S.error = ''; sc.msg = ''; sc.busy = 'ingest'; render();
+    try {
+      const text = await extractText(file);
+      if (!text.trim()) throw new Error('No text found. If it is a scan, paste the text as a note.');
+      await srcApi('ingest', { kind: 'File', title: file.name.replace(/\.[^.]+$/, ''), text });
+      sc.msg = `${file.name} processed. Review it below.`;
+    } catch (e) { S.error = e.message; }
+    sc.busy = ''; await loadSources(true); render();
+  }
+
+  async function examNext() {
+    const x = S.exam;
+    const q = await api('question', { persona: EXAM_ROTATION[x.i], lang: x.lang, history: [], seen: x.asked });
+    x.cur = q; x.asked.push(q.question);
+  }
+
+  // ---------- Render ----------
+  const TABS = [['study', 'Study'], ['rehearse', 'Rehearse'], ['exam', 'Exam'], ['progress', 'Progress'], ['dossier', 'Dossier'], ['sources', 'Sources']];
+  function render() {
+    const nav = $('nav.tabs');
+    nav.classList.toggle('hidden', !S.me);
+    nav.innerHTML = TABS.filter(([id]) => id !== 'sources' || (S.me && S.me.admin)).map(([id, label]) => `<button role="tab" data-tab="${id}" aria-selected="${S.tab === id}">${label}</button>`).join('');
+    $('#meBox').innerHTML = S.me ? `<span class="me"><b>${esc(S.me.me)}</b> <button class="linkish" data-act="logout">Sign out</button></span>` : '';
+    if (!S.d || S.booting) return;
+    const focusId = document.activeElement && document.activeElement.id;
+    const views = { study: renderStudy, rehearse: renderRehearse, exam: renderExam, progress: renderProgress, dossier: renderDossier, sources: renderSources };
+    $('#view').innerHTML = S.me ? views[S.tab]() : renderLogin();
+    if (focusId && /Text$/.test(focusId) && document.getElementById(focusId)) {
+      const el = document.getElementById(focusId); el.focus(); el.setSelectionRange(el.value.length, el.value.length);
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const tab = e.target.closest('nav.tabs button');
+    if (tab) {
+      if (rec) rec.stop();
+      S.tab = tab.dataset.tab; S.error = '';
+      if (S.tab === 'progress') { loadProgress(); return; }
+      if (S.tab === 'sources' || S.tab === 'dossier') { render(); loadSources(S.tab === 'dossier'); return; }
+      render(); return;
+    }
+    const b = e.target.closest('[data-act]');
+    if (b && !b.disabled) act(b.dataset.act, b);
+  });
+  document.addEventListener('input', (e) => { if (e.target.id) syncText(e.target.id, e.target.value); });
+  document.addEventListener('change', (e) => {
+    if (e.target.id === 'filter') S.study.filter = e.target.value;
+    if (e.target.id === 'srcFile' && e.target.files[0]) onFile(e.target.files[0]);
+    if (e.target.id === 'personPick') { S.prog.person = e.target.value; S.prog.data = null; loadProgress(); }
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.id === 'loginCode') act('login'); });
+
+  fetch(`/data/${DOSSIER_ID}.json`).then((r) => { if (!r.ok) throw new Error(); return r.json(); }).then(async (d) => {
+    S.d = d; document.title = `diez coach, ${d.title}`;
+    $('#dossierName').textContent = `${d.title}, ${d.subtitle}`;
+    if (S.code) { try { await signIn(S.code); } catch { signOut(); } }
+    S.booting = false; render();
+  }).catch(() => {
+    $('#dossierName').textContent = 'Dossier not found';
+    $('#view').innerHTML = `<div class="notice">Could not load the dossier "${esc(DOSSIER_ID)}". Check that data/${esc(DOSSIER_ID)}.json exists in the repo.</div>`;
+  });
+})();
+
+</script>
+</body>
+</html>

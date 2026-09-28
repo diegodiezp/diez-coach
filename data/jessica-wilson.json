@@ -1,0 +1,298 @@
+{
+ "id": "jessica-wilson",
+ "title": "Jessica Wilson",
+ "subtitle": "Solo booth, Frieze London 2026",
+ "context": "diez gallery (Amsterdam) presents a solo booth by Jessica Wilson at Frieze London, 14 to 18 October 2026. Booth number and section: [booth number and section].",
+ "artist": {
+  "name": "Jessica Wilson",
+  "born": "1991, New York City",
+  "based": "Amsterdam (works between Amsterdam and New York)",
+  "education": "Wesleyan University (2009 to 2013); MFA, Milton Avery Graduate School of the Arts, Bard College (2017 to 2020); Rijksakademie van beeldende kunsten, Amsterdam (2023 to 2025)",
+  "mediums": "CGI animation, motion capture, readymade sculpture and LED-based light works",
+  "oneLiner": "Jessica Wilson makes computer-generated animations and installations about how invisible systems, from signals and sensors to emotions, take form in the body and in space.",
+  "ownWords": [
+   "She describes her work as having 'sensitivity to the somatic and material effects of phantasmal or virtual systems'.",
+   "Her practice centres on legibility: how abstract data is parsed through light, colour and spatial cues, and how affect is rooted in the perception of physicality.",
+   "Animation, for her, is the process by which invisible dynamics become perceptible; to animate a body is to give it spirit and stir it to action.",
+   "She is drawn to small compulsive gestures (counting, cleaning, holding, fidgeting) and atmospheric materials (fog, dirty glass, reflected emergency lights) that mark the gap between signal and reception.",
+   "She thinks of contamination as a form of animation: a yawn is contagious, affect spreads from body to body.",
+   "In smoke she finds the air made visible: smoke effects in cinema signal that something has changed."
+  ]
+ },
+ "keyMessages": [
+  "The booth has one subject across two bodies of work: smoke, and the infrastructure a city uses to sort and address its public.",
+  "Sweet Nothing: decommissioned New York LED taxi tops, built to track their own location and target advertising block by block, now stripped of that function and looping one CG animation of steam thickening into smoke and resolving into drifting numbers. You walk through it as a field, not in front of a screen.",
+  "The wall works isolate that same rendered smoke as discrete, held forms: camera-less photographs made by a virtual camera moving through a simulated atmosphere with no physical referent.",
+  "Her core move is subtraction: she removes the spectacle (the ad, the shattering glass, the payoff) and redirects attention to atmosphere, infrastructure and what persists after function is gone.",
+  "Trajectory: New Museum Screen Series solo (2020), The Photographers' Gallery solo (2023), Frieze x ICA Artists' Film Programme (2025), Rijksakademie 2023 to 2025, and an upcoming exhibition at SculptureCenter, New York, in 2027."
+ ],
+ "booth": {
+  "title": "Sweet Nothing",
+  "floor": "Sweet Nothing (2025 to 2026): up to 12 repurposed LED taxi tops, custom mapping software, CG animation, infinite loop, dimensions variable. At Frieze shown with six to twelve tops [final count to confirm]. Unique. 25,000 EUR.",
+  "walls": "Wall series [title to confirm] (2026): archival pigment prints, 21 x 17 cm, each unique, 2,000 EUR each. Rendered smoke works framed as camera-less photographs. No editions in the Frieze presentation.",
+  "animation": "The loop runs about 1 minute 20 seconds: steam rising, thickening into computer-generated smoke, resolving into drifting numbers."
+ },
+ "works": [
+  {
+   "title": "Sweet Nothing",
+   "year": "2025 to 2026",
+   "type": "Installation",
+   "description": "Up to 12 repurposed LED taxi tops, custom mapping software, CG animation, infinite loop. The tops are decommissioned New York units that were engineered to track their own location and target advertising block by block. Synchronised over a local network.",
+   "price": "25,000 EUR, unique. [Pricing for a reduced version with fewer tops to confirm.]"
+  },
+  {
+   "title": "The Commute",
+   "year": "2025",
+   "type": "Single taxi top with animation",
+   "description": "Repurposed LED taxi top, custom software, CG animation, 8:37. 65 x 136 x 70 cm. Accompanied by the artist's Yo-Yo Ma text.",
+   "price": "[price]"
+  },
+  {
+   "title": "Taxi top light works: 1R52 (2025), 7G94 (2024), 5938 (2024)",
+   "year": "2024 to 2025",
+   "type": "Light sculpture",
+   "description": "NYC taxi tops stripped of their ads, rewired with Arduino and WS2812B LEDs running real-time lighting sequences of infinite duration; 1R52 and 7G94 are also treated with olive oil and matte autocoat. Custom metal frame. 139 x 46 x 41 cm. Shown above head height, between signage and sculpture: part lamp, part marquee, part relic.",
+   "price": "6,000 EUR each"
+  },
+  {
+   "title": "Fountain (Weeping Outlet)",
+   "year": "2024",
+   "type": "Sculpture",
+   "description": "EU standard socket face that weeps water, with installation instructions. Dimensions variable.",
+   "price": "5,000 EUR"
+  },
+  {
+   "title": "Wet Carpet",
+   "year": "2024",
+   "type": "Installation",
+   "description": "Hollywood-red carpet and water. Dimensions variable.",
+   "price": "3,500 EUR"
+  },
+  {
+   "title": "Pretend I'm Dead",
+   "year": "2024",
+   "type": "CGI animation, sound, 5:08",
+   "description": "Disembodied hands build towers of wooden blocks, but the blocks have been removed: only the clacking sound and the attentive, frustrated gestures remain.",
+   "price": "5,500 EUR, edition of 4 + 2 AP (editions 1, 2 and 1 AP sold)"
+  },
+  {
+   "title": "Perfectly Clear",
+   "year": "2020 to 2023",
+   "type": "CGI animation, sound, 23:25",
+   "description": "A 3D-animated hand cleans a dirty window. We expect the CG glass to shatter; instead we are held in care and fixation. The motion-capture performer's discomfort with the sensors shows in the gestures. Shown as a solo at The Photographers' Gallery, London (2023) and at Liste with Kai Matsumiya.",
+   "price": "Edition of 4 + 2 AP [price]"
+  },
+  {
+   "title": "Not Normally at Rest (Parts 1 to 4)",
+   "year": "2020",
+   "type": "CGI animation, four parts",
+   "description": "Made during the New York shelter-in-place order: the two faces of a duplex outlet in an analytic session, analyst and analysand, unable to look at each other. Solo at Page (NYC); reviewed by Wendy Vogel in Artforum.",
+   "price": "7,000 EUR complete work, edition of 4 + 2 AP"
+  },
+  {
+   "title": "Smile Driver",
+   "year": "2019",
+   "type": "CGI animation, sound, 7:56",
+   "description": "Characters sharing one body, differentiated by the motion data they absorb; inspired by outbreaks of contagious somatic symptoms, from the Dancing Plague of 1518 to Le Roy, New York, in 2012. Screened at IFFR 2020.",
+   "price": "7,000 EUR, edition of 4 + 2 AP (edition 1 sold)"
+  },
+  {
+   "title": "Siren",
+   "year": "2026",
+   "type": "Readymade sculpture",
+   "description": "Decommissioned siren horns reworked into a radially symmetrical freestanding form, condensed vertically to sit at ear height. Her husband Scott recorded guitar for the work.",
+   "price": "[price]"
+  }
+ ],
+ "exhibitions": [
+  "Upcoming: SculptureCenter, New York (2027); solo at diez, Amsterdam (2027); duo at Punt WG, Amsterdam (2026); diez chez ellen at Ellen de Bruijne Projects, Amsterdam (2026)",
+  "2026: The Attic, solo at Petrine, Paris (March to May), essay by Vijay Masharani, 'Find Up then Find the Ladder'",
+  "2025: Frieze x ICA Artists' Film Programme, ICA London; Eye on Art: Six Minutes, Eye Filmmuseum Amsterdam; Multiplex 4, KM28 Berlin; Projections at Art Rotterdam; Diaphane at Soldes, Los Angeles",
+  "2024: Dream State, duo at diez, Amsterdam; General Magic, The Fulcrum Press, Los Angeles; To supplement the fragment, Public Gallery, London; Face Arena, Central Fine, Miami",
+  "2023: Perfectly Clear, solo at The Photographers' Gallery, London; solo presentation at Liste, Basel, with Kai Matsumiya; Trance, Tallinn Photomonth",
+  "2022: The Painter's New Tools, curated by Eleanor Cayre and Dean Kissick, Nahmad Contemporary, New York",
+  "2020: Screen Series, solo at the New Museum, New York; Not Normally at Rest, solo at Page (NYC); Parafictions, curated by Aria Dean; Smile Driver at International Film Festival Rotterdam",
+  "2019: Faulty Bulb, solo at Crush Curatorial, New York; 2,3,4: Dimensional Photographies, Ohio University"
+ ],
+ "press": [
+  "Travis Diehl, 'Computers and Painting's Identity Crisis', The New York Times (2022)",
+  "Wendy Vogel, review of Not Normally at Rest, Artforum (2020)",
+  "Maxwell Paparella on Not Normally at Rest, ScreenSlate (2020)",
+  "Artsy: 'The Women Artists Who Deserve Our Attention, According to 9 Leading Artists' (2020)",
+  "Lorna McDowell, 'In a Collected Trance', Berlin ArtLink, on Tallinn Photomonth (2023)"
+ ],
+ "stories": [
+  {
+   "title": "Yo-Yo Ma in the taxi",
+   "text": "In New York taxis in 2000 and 2001, Yo-Yo Ma's recorded voice played through a speaker connected to the meter, telling riders at the end of the ride not to do what he did: he had lost his Stradivarius cello, which he called his voice, in the trunk of a yellow cab. Jessica remembers it from childhood. The recording itself was later lost, the original Talking Taxi meters destroyed as part of technological upgrades.",
+   "status": "From the artist's own text for The Commute. Tell it as her memory."
+  },
+  {
+   "title": "Why the taxi tops",
+   "text": "She has worked with NYC taxi tops for about two and a half years. The LED tops ran on a targeting logic that parses the city into addressable segments: who is on this block, at this hour. Retired when the fleet upgraded, they persist in a functionally hollowed-out state. Her open question has been what these screens should show, and why.",
+   "status": "Artist's own account."
+  },
+  {
+   "title": "Jana Euler and the outlet",
+   "text": "Fountain (Weeping Outlet) gives a face and tears to the socket; Jana Euler's socket paintings treat the motif in a more abstract, diagrammatic way. Wilson humanises it.",
+   "status": "Gallery reading. Use carefully, never as a claim about any museum collection."
+  },
+  {
+   "title": "Lutz Bacher as a reference",
+   "text": "In planning the installation, the gallery discussed Lutz Bacher's pairing of Stress Balls (2012) with The Celestial Handbook (2011). Sweet Nothing works the other way round: the objects arrive already saturated with urban meaning.",
+   "status": "Gallery reference, not a declared influence."
+  }
+ ],
+ "language": [
+  "Say: 'the infrastructure a city uses to sort and address its public'. Never say 'the machinery a city uses to make itself visible': it inverts her logic, which is about concealment, sorting and targeting.",
+  "A good idea to keep: the tops as 'a presence that survives its own function'.",
+  "Name affect plainly (funny, melancholic, pathetic, tender) rather than gesturing at it abstractly.",
+  "Lead with the object and the system; keep personal anecdote (Yo-Yo Ma) as the closing payoff, not the opening justification.",
+  "Scott is her husband: say 'husband', not 'partner'."
+ ],
+ "doNotSay": [
+  "Do not name theorists in conversation (no Massumi, Winnicott, Toufic, Brinkema).",
+  "Do not attribute the fog quote in the booth text to a named author until verified.",
+  "Do not mention museum acquisitions, pitches or collection conversations (Stedelijk, V&A, Whitworth, Abbot Hall) as done or in progress.",
+  "Do not disclose details, funding or timing of the SculptureCenter project beyond 'an exhibition at SculptureCenter in 2027'.",
+  "Do not name private collectors or say which editions were bought by whom.",
+  "Do not invent prices, editions, dimensions or technical specs.",
+  "Do not share the artist's personal data or video passwords."
+ ],
+ "gaps": [
+  "Final number of taxi tops at the booth, and price if fewer than twelve",
+  "Title and exact medium of the wall series",
+  "Technical sheet for Sweet Nothing: power, network, media files, maintenance protocol, what the certificate includes",
+  "Booth number and section",
+  "Prices for The Commute and Siren, and whether they are available at the fair"
+ ],
+ "personas": [
+  {
+   "id": "skeptic",
+   "name": "The sceptical collector",
+   "short": "Experienced, buys regularly, pushes on price, durability and resale.",
+   "brief": "A seasoned European collector in their fifties with a serious collection of 1990s and 2000s art. Polite but unimpressed by jargon. Pushes on whether this is art or salvage, what happens when the technology fails, who else has bought the artist, and whether the price is justified. Interrupts vague answers and asks for specifics.",
+   "difficulty": 3
+  },
+  {
+   "id": "first",
+   "name": "The first-time buyer",
+   "short": "Curious, wealthy, new to collecting. Needs to feel safe.",
+   "brief": "A young professional from London buying their first serious work. Enthusiastic but insecure, afraid of looking naive. Asks practical questions about living with the work at home, entry points, what makes the artist important. Warms up when answers are clear and kind, retreats when answers are jargon-heavy.",
+   "difficulty": 1
+  },
+  {
+   "id": "curator",
+   "name": "The museum curator",
+   "short": "Institutional, theoretical, tests the depth of the discourse.",
+   "brief": "A curator from a European contemporary art institution. Well read, allergic to marketing language. Tests art-historical lineage, the precise meaning of the artist's claims, the relation to readymade and institutional critique, and what the SculptureCenter project will be. Values precision and honest uncertainty over confident vagueness.",
+   "difficulty": 3
+  },
+  {
+   "id": "press",
+   "name": "The journalist",
+   "short": "Wants the story, the anecdote and a quotable line.",
+   "brief": "An arts journalist writing a Frieze week round-up. Busy, in a hurry, looking for a hook, a human story and a line they can quote. Asks why this work, why now, why this gallery. Loses interest after long answers.",
+   "difficulty": 2
+  },
+  {
+   "id": "advisor",
+   "name": "The art advisor",
+   "short": "Due diligence: structure, specs, conservation, terms.",
+   "brief": "An art advisor acting for a client who is not present. Methodical and transactional. Asks how the work is sold, what the certificate covers, installation and maintenance requirements, pricing, discounts, VAT, shipping to the UK, and resale restrictions. Respects answers that say 'I will confirm that in writing' more than improvisation.",
+   "difficulty": 2
+  },
+  {
+   "id": "walkby",
+   "name": "The VIP walk-by",
+   "short": "Thirty seconds of attention. Pitch or lose them.",
+   "brief": "An important visitor (a fellow dealer, a museum trustee or a well-known collector) walking past the booth during the VIP preview. Gives the gallery thirty seconds. Asks blunt, short questions and moves on unless the answer lands immediately.",
+   "difficulty": 2
+  }
+ ],
+ "bank": [
+  {
+   "id": "sk1",
+   "persona": "skeptic",
+   "q": "It's a taxi sign with a screen. Why is this art and not salvage?",
+   "intent": "Defend the move without jargon.",
+   "keyPoints": [
+    "Real decommissioned New York taxi tops",
+    "They were built to track location and target ads block by block",
+    "Stripped of that, they loop one animation: steam into smoke into numbers",
+    "A presence that survives its own function"
+   ],
+   "answer": "Because of what she takes away. These are decommissioned New York taxi tops, built to know where they are and target advertising block by block. Jessica strips that out and gives them one animation: steam thickening into smoke and dissolving into numbers. Salvage keeps the object as it was. Here the infrastructure a city uses to sort its public keeps glowing after its purpose is gone, and you walk through it like weather.",
+   "avoid": "Don't start with theory. Start with the object and what was removed."
+  },
+  {
+   "id": "sk2",
+   "persona": "skeptic",
+   "q": "LEDs die. What happens in ten years?",
+   "intent": "Honesty on conservation.",
+   "keyPoints": [
+    "Obsolescence is literally the subject",
+    "[technical sheet: parts, files, protocol]",
+    "Offer it in writing"
+   ],
+   "answer": "Fair question, and it's inside the work: these tops exist because the fleet upgraded and retired them. Practically, [the animation files and mapping software are archived with the work, and the components are standard and replaceable]. I'll send you the full technical sheet and maintenance protocol in writing rather than improvise it here.",
+   "avoid": "Don't promise a warranty you don't have."
+  },
+  {
+   "id": "pr1",
+   "persona": "press",
+   "q": "Is there an anecdote I can use?",
+   "intent": "Human story, told as hers.",
+   "keyPoints": [
+    "2000 to 2001: Yo-Yo Ma's voice in NYC taxi meters",
+    "He had lost his Stradivarius, his 'voice', in a cab",
+    "The recording itself was lost in a tech upgrade",
+    "Her childhood memory"
+   ],
+   "answer": "There's one Jessica wrote herself. Around 2000, Yo-Yo Ma's recorded voice played in New York taxis at the end of every ride, warning people not to do what he did: he'd left his Stradivarius, which he called his voice, in the trunk of a cab. She remembers being scared of losing something too. The recording was later lost as well, when the meters were destroyed in an upgrade.",
+   "avoid": "Don't lead with it. It's the payoff."
+  },
+  {
+   "id": "ad1",
+   "persona": "advisor",
+   "q": "How is it priced and what is unique?",
+   "intent": "Commercial clarity.",
+   "keyPoints": [
+    "Sweet Nothing: unique, 25,000 EUR",
+    "Wall works: unique prints, 21 x 17 cm, 2,000 EUR each",
+    "Single taxi light works 6,000 EUR",
+    "[reduced version pricing]"
+   ],
+   "answer": "Everything on the booth is unique. Sweet Nothing, the full floor installation of up to twelve tops, is 25,000 euros. The wall works are unique archival pigment prints, 21 by 17 centimetres, 2,000 euros each. If your client wants a single object, the individual taxi-top light works are 6,000 euros each. I'll send the full list with technical sheets today.",
+   "avoid": "Don't improvise a discount at the first question."
+  },
+  {
+   "id": "cu1",
+   "persona": "curator",
+   "q": "Why call the wall works photographs?",
+   "intent": "Can you defend the expanded-photography framing?",
+   "keyPoints": [
+    "Camera-less photographs",
+    "A virtual camera moving through a simulated atmosphere",
+    "No physical referent",
+    "Lineage: Dimensional Photographies, The Photographers' Gallery solo"
+   ],
+   "answer": "Because they're made the way photographs are made, just without a world in front of the lens. A virtual camera moves through a simulated volume of smoke and she captures single permutations of it. There's no physical referent at all, so they're camera-less photographs. It's a thread through her work: she showed in Dimensional Photographies in 2019 and had a solo at The Photographers' Gallery in 2023.",
+   "avoid": "Don't call them 'digital prints' and stop there."
+  },
+  {
+   "id": "wb1",
+   "persona": "walkby",
+   "q": "Thirty seconds. What am I looking at?",
+   "intent": "Elevator pitch.",
+   "keyPoints": [
+    "Real NYC taxi tops",
+    "Built to target ads by block, now retired",
+    "One loop: steam, smoke, numbers",
+    "SculptureCenter 2027"
+   ],
+   "answer": "Decommissioned New York taxi tops. They were built to track where they are and target ads block by block. Jessica Wilson stripped that out; now they all loop one animation of steam turning into smoke and then into numbers. On the walls, the same smoke held still as photographs made with no camera. She has an exhibition at SculptureCenter next year.",
+   "avoid": "No preamble."
+  }
+ ]
+}

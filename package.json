@@ -1,0 +1,6 @@
+{
+  "name": "diez-coach",
+  "private": true,
+  "description": "Rehearsal tool for diez gallery: role-play, feedback and crib sheets per artist dossier",
+  "engines": { "node": ">=18" }
+}
