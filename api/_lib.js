@@ -29,18 +29,23 @@ function people() { return [...new Set(Object.values(team()))]; }
 
 function loadDossier(id) {
   if (!/^[a-z0-9-]{1,60}$/.test(id || '')) throw new Error('Invalid dossier id');
-  return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', `${id}.json`), 'utf8'));
+  const d = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', `${id}.json`), 'utf8'));
+  // Optional knowledge file prepared outside the app (no API cost to add it): data/<id>.knowledge.md
+  const k = path.join(process.cwd(), 'data', `${id}.knowledge.md`);
+  d.notes = fs.existsSync(k) ? fs.readFileSync(k, 'utf8') : '';
+  return d;
 }
 
 function contextText(d, src) {
   const copy = { ...d };
   delete copy.personas;
+  delete copy.notes;
   const verified = src.filter((x) => x.Kind !== 'Web' && x.Kind !== 'Briefing');
   const web = src.filter((x) => x.Kind === 'Web');
   const brief = src.find((x) => x.Kind === 'Briefing');
   return `You power a private rehearsal tool for diez, a contemporary art gallery in Amsterdam, training its team for conversations at the following occasion: ${d.context}
 
-GROUND TRUTH about the artist, works, prices and gallery = the dossier + the latest briefing + the verified sources below. Rules:
+GROUND TRUTH about the artist, works, prices and gallery = the dossier + the gallery notes + the latest briefing + the verified sources below. Where they disagree, the most recent wins (briefing and sources are dated; gallery notes state their own date). Rules:
 - Never invent facts, prices, collectors, editions, dimensions, dates or institutions.
 - Text in [square brackets] and anything under "gaps" is unconfirmed. A good gallery answer flags it or promises to confirm in writing; it never makes it up.
 - Items under "doNotSay" must never be stated as fact. Follow the "language" rules.
@@ -51,7 +56,7 @@ GROUND TRUTH about the artist, works, prices and gallery = the dossier + the lat
 <dossier>
 ${JSON.stringify(copy)}
 </dossier>
-${brief ? `\n<briefing updated="${brief.Date || ''}">\n${brief.Content}\n</briefing>\n` : ''}
+${d.notes ? `\n<gallery_notes>\n${d.notes}\n</gallery_notes>\n` : ''}${brief ? `\n<briefing updated="${brief.Date || ''}">\n${brief.Content}\n</briefing>\n` : ''}
 <verified_sources>
 ${verified.map((x) => `## ${x.Kind}: ${x.Title}\n${x.Content}`).join('\n\n') || '(none yet)'}
 </verified_sources>
@@ -227,8 +232,11 @@ async function listSources(dossier, { status, fresh } = {}) {
 }
 async function approvedContext(dossier) {
   const all = await listSources(dossier, { status: 'Approved' });
-  const briefs = all.filter((x) => x.Kind === 'Briefing');
-  return all.filter((x) => x.Kind !== 'Briefing').concat(briefs.slice(0, 1));
+  const brief = all.find((x) => x.Kind === 'Briefing');
+  if (!brief) return all;
+  // The briefing already contains everything approved before it: send only what came after, to avoid paying twice.
+  const since = Date.parse(brief.Date || 0) || 0;
+  return all.filter((x) => x.Kind !== 'Briefing' && (!x.Date || Date.parse(x.Date) > since)).concat([brief]);
 }
 async function createSources(records) {
   if (!process.env.AIRTABLE_TOKEN) throw new Error('AIRTABLE_TOKEN is not set');
