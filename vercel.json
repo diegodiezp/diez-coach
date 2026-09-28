@@ -1,15 +1,44 @@
 {
   "functions": {
-    "api/coach.js": { "includeFiles": "data/**", "maxDuration": 60 },
-    "api/sources.js": { "includeFiles": "data/**", "maxDuration": 120 },
-    "api/cron.js": { "includeFiles": "data/**", "maxDuration": 300 },
-    "api/progress.js": { "maxDuration": 30 }
+    "api/coach.js": {
+      "includeFiles": "data/**",
+      "maxDuration": 60
+    },
+    "api/sources.js": {
+      "includeFiles": "data/**",
+      "maxDuration": 120
+    },
+    "api/cron.js": {
+      "includeFiles": "data/**",
+      "maxDuration": 300
+    },
+    "api/progress.js": {
+      "maxDuration": 30
+    },
+    "api/batch.js": {
+      "includeFiles": "data/**",
+      "maxDuration": 120
+    }
   },
-  "crons": [{ "path": "/api/cron", "schedule": "0 7 * * 1" }],
+  "crons": [
+    {
+      "path": "/api/cron",
+      "schedule": "0 7 * * 1"
+    }
+  ],
   "headers": [
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
-      { "key": "Referrer-Policy", "value": "same-origin" }
-    ]}
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        }
+      ]
+    }
   ]
 }

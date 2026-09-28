@@ -198,6 +198,14 @@ async function logAttempt(f) {
   return true;
 }
 
+async function logMany(list) {
+  if (!process.env.AIRTABLE_TOKEN || !list.length) return false;
+  for (let i = 0; i < list.length; i += 10) {
+    await airtable('', { method: 'POST', body: JSON.stringify({ typecast: true, records: list.slice(i, i + 10).map((fields) => ({ fields })) }) });
+  }
+  return true;
+}
+
 async function fetchLog(person) {
   const esc = person.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
   const fields = ['Person', 'Date', 'Mode', 'Dossier', 'Persona', 'Score', 'Accuracy', 'Clarity', 'Persuasion', 'Listening', 'Help used', 'Exam ID', 'Question'];
@@ -255,4 +263,4 @@ async function updateSource(id, fields) {
   return { id: j.id, ...j.fields };
 }
 
-module.exports = { contextText, personaBlock, listSources, approvedContext, createSources, updateSource, LANGS, whoami, people, loadDossier, task, askClaude, score100, logAttempt, fetchLog };
+module.exports = { contextText, personaBlock, listSources, approvedContext, createSources, updateSource, LANGS, whoami, people, loadDossier, task, askClaude, score100, logAttempt, logMany, fetchLog };

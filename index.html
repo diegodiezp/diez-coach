@@ -215,10 +215,10 @@ input[type=file] { font-size: 15px; }
 
   const S = {
     d: null, tab: 'study', me: null, code: store.get('coach:code', ''), error: '', booting: true,
-    study: { filter: 'all', card: null, seen: [], hints: false, answer: false, used: 0, fb: null, busy: false, checking: false, text: '' },
+    study: { filter: 'all', deck: [], i: 0, answers: {}, used: {}, fb: {}, seen: [], hints: false, answer: false, busy: false, checking: false },
     reh: { persona: store.get('coach:persona', 'skeptic'), lang: store.get('coach:lang', 'en'), on: false, done: false,
            history: [], cur: null, cheat: null, showHints: false, showAnswer: false, used: 0, fb: null, busy: false, text: '', log: [], showIntent: false },
-    exam: { on: false, done: false, id: '', i: 0, cur: null, text: '', busy: false, results: [], lang: 'en', asked: [] },
+    exam: { on: false, done: false, id: '', i: 0, deck: [], answers: {}, busy: false, results: [], lang: 'en', asked: [] },
     prog: { data: null, person: '', busy: false },
     src: { list: null, busy: '', msg: '' }, notes: ''
   };
@@ -238,6 +238,7 @@ input[type=file] { font-size: 15px; }
     if (!r.ok) throw new Error(j.error || `The coach is not reachable (${r.status}).`);
     return j;
   }
+  const batch = (action, payload) => call('/api/batch', { method: 'POST', body: JSON.stringify({ action, dossier: DOSSIER_ID, ...payload }) });
   const api = (action, payload) => call('/api/coach', { method: 'POST', body: JSON.stringify({ action, dossier: DOSSIER_ID, ...payload }) });
 
   async function signIn(code) {
@@ -287,36 +288,55 @@ input[type=file] { font-size: 15px; }
     </div>`;
   }
 
-  // ---------- Study ----------
+  // ---------- Study (sets of questions, one call per set) ----------
+  const SET_SIZE = 8;
   function renderStudy() {
-    const st = S.study, card = st.card, p = card && personaOf(card.persona);
+    const st = S.study, deck = st.deck, card = deck[st.i], p = card && personaOf(card.persona);
     const opts = [`<option value="all">Any visitor</option>`, ...S.d.personas.map((x) => `<option value="${x.id}" ${st.filter === x.id ? 'selected' : ''}>${esc(x.name)}</option>`)].join('');
-    return `
-      <div class="row spread" style="margin-top:0">
+    const unscored = deck.filter((c, i) => (st.answers[i] || '').trim() && !st.fb[i]).length;
+    const top = `<div class="row spread" style="margin-top:0">
         <select id="filter" aria-label="Visitor">${opts}</select>
-        <span class="progress">${st.seen.length ? `${st.seen.length} studied this session` : 'Claude writes a new question every time'}</span>
-      </div>
-      <div style="margin-top:22px">
-        <p class="who"><span>${p ? `<strong>${esc(p.name)}</strong> asks` : '&nbsp;'}</span></p>
-        ${panel(card && card.q, st.busy && !st.checking ? 'Thinking of a question' : 'Press New question')}
-        ${card ? `<p class="intent"><b>What this tests:</b> ${esc(card.intent)}</p>` : ''}
-      </div>
-      ${card ? `
+        <button class="btn ${deck.length ? 'ghost' : ''}" data-act="newSet" ${st.busy ? 'disabled' : ''}>${st.busy && !st.checking ? 'Writing the set' : `New set of ${SET_SIZE}`}</button>
+      </div>`;
+    if (!deck.length) return top + `<div style="margin-top:22px">${panel('', st.busy ? 'Writing your questions' : 'Press New set')}</div>
+      <p class="muted" style="font-size:14px;margin-top:14px">Claude writes ${SET_SIZE} linked questions with their crib sheets in one go. Moving between them, hints and answers cost nothing; scoring all your answers at the end is one more call.</p>${errHTML()}`;
+    return top + `
+      <div class="steps" style="margin-top:20px">${deck.map((c, i) => `<i class="${st.fb[i] ? 'done' : i === st.i ? 'now' : ''}"></i>`).join('')}</div>
+      <p class="who"><span><strong>${esc(p.name)}</strong> asks</span><span>${st.i + 1} / ${deck.length}</span></p>
+      ${panel(card.q)}
+      <p class="intent"><b>What this tests:</b> ${esc(card.intent)}</p>
       <label class="field" for="studyText">Say it out loud, or write it here and get it scored</label>
-      <textarea id="studyText" placeholder="Your answer">${esc(st.text)}</textarea>
+      <textarea id="studyText" placeholder="Your answer">${esc(st.answers[st.i] || '')}</textarea>
       <div class="row">
         ${micButton('studyText')}
         <button class="btn ghost" data-act="hints">${st.hints ? 'Hide hints' : 'Show hints'}</button>
         <button class="btn cab" data-act="answer">${st.answer ? 'Hide the answer' : 'What would you answer?'}</button>
-        <button class="btn ghost" data-act="check" ${st.busy ? 'disabled' : ''}>${st.checking ? 'Scoring' : 'Score my answer'}</button>
+        <button class="btn ghost" data-act="check" ${st.busy ? 'disabled' : ''}>${st.checking ? 'Scoring' : 'Score this one'}</button>
       </div>
-      ${sheetHTML(card, st.hints, st.answer)}` : ''}
+      ${sheetHTML(card, st.hints, st.answer)}
       ${errHTML()}
-      ${st.fb ? feedbackHTML(st.fb, false) : ''}
-      <div class="row" style="margin-top:28px">
-        <button class="btn" data-act="newq" ${st.busy ? 'disabled' : ''}>${st.busy && !st.checking ? 'Thinking' : 'New question'}</button>
+      ${st.fb[st.i] ? feedbackHTML(st.fb[st.i], false) : ''}
+      <div class="row spread" style="margin-top:26px">
+        <button class="btn ghost" data-act="sPrev" ${st.i === 0 ? 'disabled' : ''}>Previous</button>
+        <button class="btn ghost" data-act="checkAll" ${st.busy || !unscored ? 'disabled' : ''}>${st.checking ? 'Scoring' : `Score all answered (${unscored})`}</button>
+        <button class="btn" data-act="sNext" ${st.i >= deck.length - 1 ? 'disabled' : ''}>Next question</button>
       </div>
-      <p class="muted" style="font-size:14px;margin-top:16px">Scores count more when you answer before opening the hints. Peeking is recorded.</p>`;
+      <p class="muted" style="font-size:14px;margin-top:16px">Tip: answer the whole set, then score all at once. It is the cheapest way and the scores count the same. Peeking at hints is recorded per question.</p>`;
+  }
+  function setPersonas() {
+    const ids = S.d.personas.map((p) => p.id), f = S.study.filter;
+    if (f !== 'all') return Array(SET_SIZE).fill(f);
+    const out = []; for (let k = 0; k < SET_SIZE; k++) out.push(adaptivePersona(ids));
+    // make sure the set is varied: never the same visitor three times in a row
+    for (let k = 2; k < out.length; k++) if (out[k] === out[k - 1] && out[k] === out[k - 2]) out[k] = ids[(ids.indexOf(out[k]) + 1) % ids.length];
+    return out;
+  }
+  async function scoreStudy(indexes) {
+    const st = S.study;
+    const items = indexes.map((i) => ({ persona: st.deck[i].persona, question: st.deck[i].q, answer: st.answers[i], help: HELP[st.used[i] || 0] }));
+    const r = await batch('evaluate', { mode: 'study', lang: 'en', items });
+    r.results.forEach((res, k) => { st.fb[indexes[k]] = { ...res, logged: r.logged, logError: r.logError, proposed: res.score >= 85 }; });
+    S.prog.data = null;
   }
 
   // ---------- Rehearse ----------
@@ -377,35 +397,37 @@ input[type=file] { font-size: 15px; }
     </div><div class="row"><button class="btn" data-act="restart">New session</button></div>`;
   }
 
-  // ---------- Exam ----------
+  // ---------- Exam (two calls in total: one to write, one to score) ----------
   function renderExam() {
     const x = S.exam, total = EXAM_ROTATION.length;
     if (!x.on && !x.done) return `
       <p style="margin-top:0;max-width:62ch">Eight visitors in a row, from the thirty-second walk-by to the art advisor. No hints and no crib sheet. You see your score only at the end, and it goes straight into your progress. This is the number that counts.</p>
-      <div class="row">${langSelect('examLang', x.lang)}<button class="btn" data-act="examStart" ${x.busy ? 'disabled' : ''}>${x.busy ? 'Preparing' : 'Start the exam'}</button></div>
+      <div class="row">${langSelect('examLang', x.lang)}<button class="btn" data-act="examStart" ${x.busy ? 'disabled' : ''}>${x.busy ? 'Preparing the visitors' : 'Start the exam'}</button></div>
       ${errHTML()}`;
     if (x.done) {
-      const avg = Math.round(x.results.reduce((a, t) => a + t.fb.score, 0) / (x.results.length || 1));
+      const avg = Math.round(x.results.reduce((a, t) => a + t.score, 0) / (x.results.length || 1));
       return `<div class="feedback" style="margin-top:0">
           <div class="bigscore"><strong>${avg}</strong><span>/ 100, exam score</span></div>
           <p class="verdict">${avg >= 80 ? 'Fair-ready.' : avg >= 65 ? 'Solid. A few answers still need work.' : 'Keep studying, then take it again.'}</p>
         </div>
         <div class="log">${x.results.map((t, i) => `
-          <details><summary>${i + 1}. ${esc(personaOf(t.persona).name)}: <span class="muted">${t.fb.score}</span></summary>
-            <p class="turn"><b>Question:</b> ${esc(t.q)}</p><p class="turn"><b>You:</b> ${esc(t.a)}</p>
-            <p class="turn"><b>Verdict:</b> ${esc(t.fb.verdict)}</p><p class="turn"><b>Stronger:</b> ${rich(t.fb.stronger)}</p></details>`).join('')}</div>
+          <details><summary>${i + 1}. ${esc(personaOf(t.persona).name)}: <span class="muted">${t.score}</span></summary>
+            <p class="turn"><b>Question:</b> ${esc(t.question)}</p><p class="turn"><b>You:</b> ${esc(t.answer)}</p>
+            <p class="turn"><b>Verdict:</b> ${esc(t.verdict)}</p>
+            ${t.factcheck && t.factcheck.length ? `<p class="turn avoid"><b>Check:</b> ${esc(t.factcheck.join(' '))}</p>` : ''}
+            <p class="turn"><b>Stronger:</b> ${rich(t.stronger)}</p></details>`).join('')}</div>
         <div class="row" style="margin-top:20px"><button class="btn" data-act="examReset">Take it again</button><button class="btn ghost" data-act="goProgress">See progress</button></div>`;
     }
-    const p = personaOf(EXAM_ROTATION[x.i]);
+    const card = x.deck[x.i], p = personaOf(card.persona), last = x.i + 1 === total;
     return `
       <div class="steps">${EXAM_ROTATION.map((_, i) => `<i class="${i < x.i ? 'done' : i === x.i ? 'now' : ''}"></i>`).join('')}</div>
       <p class="who"><span><strong>${esc(p.name)}</strong></span><span>${x.i + 1} / ${total}</span></p>
-      ${panel(x.cur && x.cur.question, x.busy ? 'Next visitor coming' : '')}
-      ${x.cur ? `
-        <label class="field" for="examText">Your answer</label>
-        <textarea id="examText" placeholder="Answer as you would at the booth">${esc(x.text)}</textarea>
-        <div class="row">${micButton('examText')}
-          <button class="btn" data-act="examSend" ${x.busy ? 'disabled' : ''}>${x.busy ? 'Scoring' : x.i + 1 === total ? 'Finish the exam' : 'Next visitor'}</button></div>` : ''}
+      ${panel(card.q)}
+      <label class="field" for="examText">Your answer</label>
+      <textarea id="examText" placeholder="Answer as you would at the booth">${esc(x.answers[x.i] || '')}</textarea>
+      <div class="row">${micButton('examText')}
+        ${x.i > 0 ? `<button class="btn ghost" data-act="examPrev" ${x.busy ? 'disabled' : ''}>Previous</button>` : ''}
+        <button class="btn" data-act="examSend" ${x.busy ? 'disabled' : ''}>${x.busy ? 'Scoring all eight' : last ? 'Finish and score' : 'Next visitor'}</button></div>
       ${errHTML()}`;
   }
 
@@ -526,7 +548,7 @@ input[type=file] { font-size: 15px; }
     rec.onerror = () => { S.error = 'Dictation stopped. Check microphone permission.'; };
     rec.start(); render();
   }
-  function syncText(id, v) { if (id === 'studyText') S.study.text = v; if (id === 'rehText') S.reh.text = v; if (id === 'examText') S.exam.text = v; }
+  function syncText(id, v) { if (id === 'studyText') S.study.answers[S.study.i] = v; if (id === 'rehText') S.reh.text = v; if (id === 'examText') S.exam.answers[S.exam.i] = v; }
 
   // ---------- Actions ----------
   async function act(name, el) {
@@ -539,19 +561,21 @@ input[type=file] { font-size: 15px; }
           await signIn(code); break; }
         case 'logout': signOut(); break;
 
-        case 'hints': st.hints = !st.hints; if (st.hints) st.used = Math.max(st.used, 1); break;
-        case 'answer': st.answer = !st.answer; if (st.answer) st.used = 2; break;
-        case 'newq': {
-          const ids = S.d.personas.map((p) => p.id);
-          const persona = st.filter === 'all' ? adaptivePersona(ids) : st.filter;
-          Object.assign(st, { busy: true, card: null, hints: false, answer: false, used: 0, fb: null, text: '' }); render();
-          const c = await api('card', { persona, lang: 'en', seen: st.seen.slice(-25), focus: weakestCriterion() });
-          st.card = { ...c, persona, keyPoints: c.keyPoints || [] }; st.seen.push(c.q); break; }
+        case 'hints': st.hints = !st.hints; if (st.hints) st.used[st.i] = Math.max(st.used[st.i] || 0, 1); break;
+        case 'answer': st.answer = !st.answer; if (st.answer) st.used[st.i] = 2; break;
+        case 'sPrev': case 'sNext': st.i = Math.max(0, Math.min(st.deck.length - 1, st.i + (name === 'sNext' ? 1 : -1))); st.hints = false; st.answer = false; break;
+        case 'newSet': {
+          const personas = setPersonas();
+          Object.assign(st, { busy: true, deck: [], i: 0, answers: {}, used: {}, fb: {}, hints: false, answer: false }); render();
+          const r = await batch('cards', { personas, lang: 'en', seen: st.seen.slice(-30), focus: weakestCriterion() });
+          st.deck = r.cards.map((c) => ({ ...c, keyPoints: c.keyPoints || [] })); st.seen.push(...st.deck.map((c) => c.q)); break; }
         case 'check': {
-          if (!st.text.trim()) { S.error = 'Write or dictate your answer first.'; break; }
-          st.busy = true; st.checking = true; render();
-          st.fb = await api('evaluate', { mode: 'study', help: HELP[st.used], persona: st.card.persona, lang: 'en', question: st.card.q, answer: st.text, history: [] });
-          break; }
+          if (!(st.answers[st.i] || '').trim()) { S.error = 'Write or dictate your answer first.'; break; }
+          st.busy = true; st.checking = true; render(); await scoreStudy([st.i]); break; }
+        case 'checkAll': {
+          const idx = st.deck.map((c, i) => i).filter((i) => (st.answers[i] || '').trim() && !st.fb[i]);
+          if (!idx.length) break;
+          st.busy = true; st.checking = true; render(); await scoreStudy(idx); break; }
 
         case 'start': {
           const picked = document.querySelector('input[name=persona]:checked');
@@ -583,16 +607,18 @@ input[type=file] { font-size: 15px; }
 
         case 'examStart': {
           x.lang = $('#examLang').value;
-          Object.assign(x, { on: true, done: false, id: 'ex-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), i: 0, results: [], asked: [], cur: null, text: '', busy: true });
-          render(); await examNext(); break; }
+          Object.assign(x, { on: false, done: false, id: 'ex-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), i: 0, results: [], deck: [], answers: {}, busy: true });
+          render();
+          const r = await batch('cards', { personas: EXAM_ROTATION, lang: x.lang, exam: true, seen: x.asked.slice(-30) });
+          x.deck = r.cards; x.asked.push(...r.cards.map((c) => c.q)); x.on = true; break; }
+        case 'examPrev': x.i = Math.max(0, x.i - 1); break;
         case 'examSend': {
-          if (!x.text.trim()) { S.error = 'Write or dictate your answer first. A blank answer scores 1.'; break; }
+          if (!(x.answers[x.i] || '').trim()) { S.error = 'Write or dictate your answer first.'; break; }
+          if (x.i + 1 < EXAM_ROTATION.length) { x.i += 1; break; }
           x.busy = true; render();
-          const persona = EXAM_ROTATION[x.i];
-          const fb = await api('evaluate', { mode: 'exam', examId: x.id, persona, lang: x.lang, question: x.cur.question, answer: x.text, history: [] });
-          x.results.push({ persona, q: x.cur.question, a: x.text, fb });
-          if (x.i + 1 >= EXAM_ROTATION.length) { x.on = false; x.done = true; S.prog.data = null; break; }
-          x.i += 1; x.cur = null; x.text = ''; render(); await examNext(); break; }
+          const items = x.deck.map((c, i) => ({ persona: c.persona, question: c.q, answer: x.answers[i] }));
+          const r = await batch('evaluate', { mode: 'exam', examId: x.id, lang: x.lang, items });
+          x.results = r.results; x.on = false; x.done = true; S.prog.data = null; break; }
         case 'examReset': Object.assign(x, { on: false, done: false, results: [] }); break;
         case 'goProgress': S.tab = 'progress'; loadProgress(); return;
 
@@ -736,11 +762,7 @@ input[type=file] { font-size: 15px; }
     sc.busy = ''; await loadSources(true); render();
   }
 
-  async function examNext() {
-    const x = S.exam;
-    const q = await api('question', { persona: EXAM_ROTATION[x.i], lang: x.lang, history: [], seen: x.asked });
-    x.cur = q; x.asked.push(q.question);
-  }
+
 
   // ---------- Render ----------
   const TABS = [['study', 'Study'], ['rehearse', 'Rehearse'], ['exam', 'Exam'], ['progress', 'Progress'], ['dossier', 'Dossier'], ['sources', 'Sources']];
